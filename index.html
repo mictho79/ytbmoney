@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Money Calculator – Estimate YouTube Earnings Free</title>
+  <meta name="description" content="Free YouTube Money Calculator. Estimate YouTube earnings per video, per 1,000 views, or per million views. Supports Shorts, long-form content, and RPM by country.">
+  <link rel="canonical" href="https://example.com/">
+
+  <!--
+    FAVICON RECOMMENDATION:
+    Design: A red YouTube-style play button icon with a dollar sign overlay.
+    Flat, minimal, 2-color (red #FF0000 + white). Works at 16×16 and 32×32.
+    Tools: create with Figma, Canva, or RealFaviconGenerator.net
+    Files to generate: favicon.ico, favicon-32x32.png, favicon-16x16.png, apple-touch-icon.png, og-image.png (1200×630)
+  -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#FF0000">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="YouTube Money Calculator – Estimate YouTube Earnings Free">
+  <meta property="og:description" content="Free YouTube earnings calculator for creators. Estimate revenue from views, RPM, Shorts, and audience country. Advanced mode with regional RPM breakdowns.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:image" content="https://example.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="YouTube Money Calculator">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="YouTube Money Calculator – Estimate YouTube Earnings Free">
+  <meta name="twitter:description" content="Estimate YouTube earnings for any channel. Supports Shorts, long-form video, and audience location-based RPM calculations.">
+  <meta name="twitter:image" content="https://example.com/og-image.png">
+
+  <!-- Additional SEO -->
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="YouTube Money Calculator">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://example.com/#website",
+        "url": "https://example.com/",
+        "name": "YouTube Money Calculator",
+        "description": "Free YouTube earnings calculator for video creators",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://example.com/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://example.com/#calculator",
+        "name": "YouTube Money Calculator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "description": "Estimate YouTube earnings based on views, RPM, content type (long-form or Shorts), and audience geography. Includes weighted RPM calculation by country.",
+        "url": "https://example.com/",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "YouTube earnings estimation per video",
+          "RPM by country weighted calculator",
+          "YouTube Shorts earnings calculator",
+          "Long-form vs Shorts earnings comparison",
+          "CPM to RPM conversion estimator"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does YouTube pay per 1000 views?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "YouTube typically pays creators $1 to $10 per 1,000 views through RPM (Revenue Per Mille). The amount depends on your audience's country, content niche, and advertiser demand. US audiences tend to earn $4–$10 RPM, while Indian audiences average $0.50–$2 RPM."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much money does YouTube pay for 1 million views?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For 1 million long-form views, most YouTube creators earn between $1,000 and $10,000. A $3 RPM channel earns ~$3,000. Finance or tech channels at $8–$10 RPM can earn $8,000–$10,000. YouTube Shorts typically earns just $30–$120 per million views."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a good YouTube RPM?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For US-focused channels, $4–$8 RPM is average and $10+ RPM is excellent (common in finance, law, B2B tech). Mixed global audiences average $2–$5 RPM. Shorts RPM is usually $0.03–$0.12 per 1,000 views."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between CPM and RPM on YouTube?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CPM is what advertisers pay per 1,000 ad impressions. RPM is what creators receive per 1,000 total video views, after YouTube takes its 45% cut and after accounting for non-monetized views. RPM is always lower than CPM."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do YouTube Shorts pay less than long videos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Shorts RPM ranges from $0.03 to $0.12 per 1,000 views vs $2–$10+ for long-form. Long-form earns roughly 50–100x more per view. Shorts use a pooled revenue model with fewer ad placements."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does YouTube RPM vary by country?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Advertisers pay more to reach audiences in high-income countries with competitive ad markets. US, UK, and Australian audiences command $5–$15+ RPM. India, Southeast Asia, and Africa typically yield $0.50–$2 RPM due to lower advertiser competition and consumer spending."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this YouTube money calculator accurate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This tool provides estimates based on typical industry RPM ranges. Actual YouTube earnings vary by niche, engagement, watch time, ad settings, and YouTube's algorithms. For precise data, check YouTube Studio → Analytics → Revenue."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I estimate YouTube revenue based on audience location?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Use Advanced Mode to enter your audience distribution by region (USA, Europe, India, Other). The calculator computes a weighted RPM from typical regional rates, giving a more realistic estimate than a flat global average."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo" aria-label="YouTube Money Calculator Home">
+          <span class="logo-icon" aria-hidden="true">▶$</span>
+          <span class="logo-text">YT Money Calculator</span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#calculator">Calculator</a>
+          <a href="#rpm-guide">RPM Guide</a>
+          <a href="#shorts-vs-longform">Shorts vs Long-form</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <a href="#calculator" class="mobile-nav-link">Calculator</a>
+    <a href="#rpm-guide" class="mobile-nav-link">RPM Guide</a>
+    <a href="#shorts-vs-longform" class="mobile-nav-link">Shorts vs Long-form</a>
+    <a href="#faq" class="mobile-nav-link">FAQ</a>
+  </div>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-content">
+            <div class="hero-badge">Free Tool · No Sign-up Required</div>
+            <h1>YouTube Money Calculator</h1>
+            <p class="hero-tagline">Estimate YouTube earnings for videos, Shorts, and global audiences.</p>
+            <p class="hero-desc">Use our free YouTube revenue estimator to calculate earnings per video, per 1,000 views, or per million views. Supports long-form content, YouTube Shorts, and weighted RPM calculations by audience country.</p>
+            <div class="hero-nav">
+              <a href="#calculator" class="btn btn-primary">Calculate YouTube Earnings</a>
+              <a href="#how-it-works" class="btn btn-ghost">How it works ↓</a>
+            </div>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <div class="stat-value">$1–$10</div>
+              <div class="stat-label">Avg RPM per 1K views</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">$3K–$10K</div>
+              <div class="stat-label">Per 1M long-form views</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">$30–$120</div>
+              <div class="stat-label">Per 1M Shorts views</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CALCULATOR ===== -->
+    <section class="calculator-section" id="calculator" aria-label="YouTube Earnings Calculator">
+      <div class="container">
+
+        <div class="calc-header">
+          <h2>YouTube Earnings Calculator</h2>
+          <p>Enter your monthly views and RPM to estimate your YouTube income. Switch to Advanced Mode for audience-based weighted RPM calculations.</p>
+        </div>
+
+        <div class="calculator-card">
+
+          <!-- Mode Toggle -->
+          <div class="mode-toggle" role="tablist" aria-label="Calculator mode">
+            <button class="mode-btn active" data-mode="basic" role="tab" aria-selected="true" aria-controls="basic-mode">
+              Basic Mode
+            </button>
+            <button class="mode-btn" data-mode="advanced" role="tab" aria-selected="false" aria-controls="advanced-mode">
+              Advanced Mode
+            </button>
+          </div>
+
+          <!-- ===== BASIC MODE ===== -->
+          <div id="basic-mode" class="calc-panel" role="tabpanel">
+            <div class="form-grid">
+
+              <div class="form-group">
+                <label for="basic-views">Monthly Views</label>
+                <input type="number" id="basic-views" value="100000" min="0" step="1000"
+                  class="form-input" aria-describedby="basic-views-hint">
+                <span class="form-hint" id="basic-views-hint">Enter your estimated monthly view count.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="basic-rpm">
+                  RPM (Revenue Per 1,000 Views)
+                  <span class="rpm-badge" id="rpm-display" aria-live="polite">$3.00</span>
+                </label>
+                <input type="range" id="basic-rpm" min="0.5" max="20" step="0.5" value="3"
+                  class="slider" aria-valuemin="0.5" aria-valuemax="20" aria-valuenow="3"
+                  aria-label="RPM value" aria-describedby="rpm-hint">
+                <div class="slider-labels" aria-hidden="true">
+                  <span>$0.50</span>
+                  <span>$20.00</span>
+                </div>
+                <span class="form-hint" id="rpm-hint">RPM is your actual revenue per 1,000 views after YouTube's 45% cut.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="basic-cpm">CPM (Optional)</label>
+                <input type="number" id="basic-cpm" placeholder="e.g. 8.00" min="0" step="0.5"
+                  class="form-input" aria-describedby="cpm-hint">
+                <span class="form-hint" id="cpm-hint">CPM is what advertisers pay. Entering CPM will suggest an RPM estimate (CPM × ~0.45).</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ===== ADVANCED MODE ===== -->
+          <div id="advanced-mode" class="calc-panel hidden" role="tabpanel">
+
+            <div class="form-grid adv-top-grid">
+              <div class="form-group">
+                <label>Content Type</label>
+                <div class="content-type-toggle" role="group" aria-label="Content type">
+                  <button class="content-btn active" data-type="longform">📹 Long-form Video</button>
+                  <button class="content-btn" data-type="shorts">📱 YouTube Shorts</button>
+                </div>
+                <span class="form-hint" id="content-type-hint">Long-form videos earn significantly more per view than Shorts.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="adv-views">Monthly Views</label>
+                <input type="number" id="adv-views" value="1000000" min="0" step="10000"
+                  class="form-input" aria-describedby="adv-views-hint">
+                <span class="form-hint" id="adv-views-hint">Total estimated views per month.</span>
+              </div>
+            </div>
+
+            <!-- Audience Distribution -->
+            <div class="audience-section">
+              <div class="audience-header">
+                <div>
+                  <h3 class="audience-title">Audience Distribution</h3>
+                  <p class="audience-desc">Set what percentage of your audience comes from each region.</p>
+                </div>
+                <div class="pct-total-badge" id="pct-total-display">
+                  Total: <span id="pct-total">100</span>%
+                </div>
+              </div>
+
+              <div class="form-grid grid-4">
+                <div class="form-group">
+                  <label for="pct-usa"><span class="flag" aria-hidden="true">🇺🇸</span> USA</label>
+                  <div class="pct-input-wrap">
+                    <input type="number" id="pct-usa" value="30" min="0" max="100"
+                      class="form-input pct-input" aria-label="USA percentage">
+                    <span class="pct-symbol">%</span>
+                  </div>
+                  <span class="form-hint" id="rpm-usa-hint">RPM: $8.00</span>
+                </div>
+                <div class="form-group">
+                  <label for="pct-europe"><span class="flag" aria-hidden="true">🇪🇺</span> Europe</label>
+                  <div class="pct-input-wrap">
+                    <input type="number" id="pct-europe" value="25" min="0" max="100"
+                      class="form-input pct-input" aria-label="Europe percentage">
+                    <span class="pct-symbol">%</span>
+                  </div>
+                  <span class="form-hint" id="rpm-europe-hint">RPM: $5.00</span>
+                </div>
+                <div class="form-group">
+                  <label for="pct-india"><span class="flag" aria-hidden="true">🇮🇳</span> India</label>
+                  <div class="pct-input-wrap">
+                    <input type="number" id="pct-india" value="25" min="0" max="100"
+                      class="form-input pct-input" aria-label="India percentage">
+                    <span class="pct-symbol">%</span>
+                  </div>
+                  <span class="form-hint" id="rpm-india-hint">RPM: $1.00</span>
+                </div>
+                <div class="form-group">
+                  <label for="pct-other"><span class="flag" aria-hidden="true">🌍</span> Other</label>
+                  <div class="pct-input-wrap">
+                    <input type="number" id="pct-other" value="20" min="0" max="100"
+                      class="form-input pct-input" aria-label="Other regions percentage">
+                    <span class="pct-symbol">%</span>
+                  </div>
+                  <span class="form-hint" id="rpm-other-hint">RPM: $2.00</span>
+                </div>
+              </div>
+
+              <div class="validation-msg hidden" id="pct-validation" role="alert" aria-live="polite">
+                ⚠️ Percentages must add up to 100%. Current total: <strong id="pct-total-val">100</strong>%. Please adjust the values above.
+              </div>
+            </div>
+
+            <!-- Advanced Options (collapsible) -->
+            <div class="adv-options-wrap">
+              <details class="adv-options">
+                <summary>Advanced Options <span class="summary-hint">(monetized playback rate, custom RPM)</span></summary>
+                <div class="adv-options-inner">
+                  <div class="form-grid">
+                    <div class="form-group">
+                      <label for="monetized-rate">Monetized Playback Rate (%)</label>
+                      <input type="number" id="monetized-rate" value="40" min="1" max="100"
+                        class="form-input" aria-describedby="monetized-hint">
+                      <span class="form-hint" id="monetized-hint">Percentage of views that are monetized. Long-form ~40%. Not applied to Shorts (Shorts use pooled revenue).</span>
+                    </div>
+                    <div class="form-group">
+                      <div class="custom-rpm-row">
+                        <label class="checkbox-label">
+                          <input type="checkbox" id="custom-rpm-toggle" aria-controls="custom-rpm-input">
+                          <span>Override with a custom RPM</span>
+                        </label>
+                      </div>
+                      <div id="custom-rpm-input" class="hidden" aria-hidden="true">
+                        <label for="custom-rpm-val">Custom RPM ($)</label>
+                        <input type="number" id="custom-rpm-val" value="4" min="0" step="0.5"
+                          class="form-input" style="margin-top:8px">
+                        <span class="form-hint">Overrides the weighted regional RPM estimate.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+          </div>
+          <!-- END ADVANCED MODE -->
+
+          <!-- ===== RESULTS ===== -->
+          <div id="results" class="results-section" aria-live="polite">
+
+            <div class="results-label-row">
+              <h3 class="results-heading">Estimated Earnings</h3>
+              <span class="results-mode-tag" id="results-mode-tag">Basic Mode</span>
+            </div>
+
+            <div class="results-grid">
+              <div class="result-card result-card--main">
+                <div class="result-label">Monthly Revenue</div>
+                <div class="result-value result-value--primary" id="monthly-revenue">$300.00</div>
+                <div class="result-sub" id="result-rpm-display">at $3.00 RPM</div>
+              </div>
+              <div class="result-card">
+                <div class="result-label">Per 1,000 Views</div>
+                <div class="result-value" id="result-per-mille">$3.00</div>
+              </div>
+              <div class="result-card">
+                <div class="result-label">Daily Estimate</div>
+                <div class="result-value" id="result-daily">$10.00</div>
+              </div>
+              <div class="result-card">
+                <div class="result-label">Yearly Estimate</div>
+                <div class="result-value" id="result-yearly">$3,600.00</div>
+              </div>
+            </div>
+
+            <!-- Comparison Card -->
+            <div class="comparison-card" id="comparison-card">
+              <div class="comparison-card-header">
+                <h3>Long-form vs Shorts Comparison</h3>
+                <p class="comparison-desc">
+                  If these <strong id="comparison-views">100,000</strong> views were monetized as:
+                </p>
+              </div>
+              <div class="comparison-grid">
+                <div class="comparison-item comparison-item--longform">
+                  <div class="comparison-type">📹 Long-form Video</div>
+                  <div class="comparison-value" id="cmp-longform">—</div>
+                  <div class="comparison-rpm">Weighted RPM: <span id="cmp-lf-rpm">—</span></div>
+                </div>
+                <div class="comparison-divider" aria-hidden="true">VS</div>
+                <div class="comparison-item comparison-item--shorts">
+                  <div class="comparison-type">📱 YouTube Shorts</div>
+                  <div class="comparison-value" id="cmp-shorts">—</div>
+                  <div class="comparison-rpm">Weighted RPM: <span id="cmp-sh-rpm">—</span></div>
+                </div>
+              </div>
+              <p class="comparison-note" id="comparison-note"></p>
+            </div>
+
+            <div class="disclaimer" role="note">
+              <strong>⚠ Disclaimer:</strong> These estimates are for informational purposes only. Actual YouTube earnings vary based on niche, audience engagement, advertiser demand, watch time, geography, and YouTube's policies. Always refer to YouTube Studio Analytics for real data.
+            </div>
+
+          </div>
+
+        </div>
+        <!-- END calculator-card -->
+
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="content-section" id="how-it-works" aria-labelledby="how-it-works-heading">
+      <div class="container">
+        <h2 id="how-it-works-heading">How the YouTube Money Calculator Works</h2>
+        <p>This estimated YouTube income calculator uses <strong>RPM (Revenue Per Mille)</strong> — the same metric YouTube shows creators in YouTube Studio Analytics. It applies the core formula:</p>
+
+        <div class="formula-highlight">
+          Revenue = (Views ÷ 1,000) × RPM
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-icon" aria-hidden="true">📊</div>
+            <h3>1. Enter Your Views</h3>
+            <p>Input your estimated monthly views. Use your YouTube Analytics data for the most accurate result. The calculator works for any view count — from 1,000 to 100 million.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon" aria-hidden="true">💰</div>
+            <h3>2. Set Your RPM</h3>
+            <p>Choose an RPM estimate based on your niche and audience country. Not sure? Use <strong>Advanced Mode</strong> for a weighted RPM based on your audience's geographic distribution.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon" aria-hidden="true">🧮</div>
+            <h3>3. Get Your Estimate</h3>
+            <p>Results update instantly. See monthly, daily, and yearly estimates alongside a Long-form vs Shorts comparison — so you can understand the full earnings picture.</p>
+          </div>
+        </div>
+
+        <div class="cta-inline">
+          <p>Ready to calculate your YouTube earnings?</p>
+          <a href="#calculator" class="btn btn-primary">Try the YouTube Money Calculator</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CPM VS RPM ===== -->
+    <section class="content-section content-section--alt" id="rpm-guide" aria-labelledby="rpm-guide-heading">
+      <div class="container">
+        <h2 id="rpm-guide-heading">YouTube CPM vs RPM Explained</h2>
+        <p>Understanding the difference between YouTube CPM and RPM is essential for accurately estimating your YouTube revenue. These two metrics are often confused but represent very different numbers.</p>
+
+        <div class="metric-grid">
+          <div class="metric-card metric-card--cpm">
+            <div class="metric-header">
+              <h3>CPM</h3>
+              <span class="metric-badge">Cost Per Mille</span>
+            </div>
+            <p>CPM is what <strong>advertisers pay</strong> per 1,000 ad impressions. This is the gross advertiser cost before YouTube takes its share. CPM is set by the advertising auction — it fluctuates based on competition, targeting, niche, and time of year.</p>
+            <div class="metric-example">
+              <strong>Example:</strong> A $10 CPM means advertisers pay $10 for 1,000 ad views on your videos.
+            </div>
+            <ul class="metric-facts">
+              <li>Controlled by advertisers, not creators</li>
+              <li>Visible in some analytics dashboards</li>
+              <li>Higher in Q4 (holiday ad season)</li>
+              <li>Finance, legal niches have highest CPM</li>
+            </ul>
+          </div>
+
+          <div class="metric-card metric-card--rpm">
+            <div class="metric-header">
+              <h3>RPM</h3>
+              <span class="metric-badge">Revenue Per Mille</span>
+            </div>
+            <p>RPM is what <strong>creators actually receive</strong> per 1,000 total video views — after YouTube takes its 45% revenue share and after accounting for views where no ad was shown. RPM is always lower than CPM.</p>
+            <div class="metric-example">
+              <strong>Example:</strong> A $10 CPM typically results in $3–$4 RPM for the creator after YouTube's cut and non-monetized views.
+            </div>
+            <ul class="metric-facts">
+              <li>The number that matters most for creators</li>
+              <li>Visible in YouTube Studio → Revenue</li>
+              <li>Includes all monetization types</li>
+              <li>Typically 40–55% of CPM</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="formula-box">
+          <h3>The Rough Conversion Formula</h3>
+          <div class="formula-code">RPM ≈ CPM × Monetized Playback Rate × 0.55</div>
+          <p>For example: $10 CPM × 40% monetized rate × 0.55 = <strong>~$2.20 RPM</strong></p>
+          <p class="formula-note">This is an approximation. Your real RPM is in YouTube Studio → Analytics → Revenue tab. Use our <a href="#calculator">YouTube RPM calculator</a> above to estimate based on your own data.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SHORTS VS LONG-FORM ===== -->
+    <section class="content-section" id="shorts-vs-longform" aria-labelledby="shorts-heading">
+      <div class="container">
+        <h2 id="shorts-heading">YouTube Shorts vs Long-form Earnings</h2>
+        <p>One of the most common questions creators ask is whether they should focus on Shorts or long-form videos. From a pure monetization standpoint, there is a very significant difference in per-view earnings. This YouTube Shorts money calculator section explains why.</p>
+
+        <div class="format-compare">
+          <div class="format-card format-card--longform">
+            <div class="format-icon" aria-hidden="true">📹</div>
+            <h3>Long-form Videos</h3>
+            <div class="format-rpm-badge">Typical RPM: $2 – $10+</div>
+            <ul>
+              <li>Pre-roll, mid-roll, and display ads</li>
+              <li>Higher advertiser intent and engagement</li>
+              <li>RPM visible directly in YouTube Studio</li>
+              <li>Better monetization per view</li>
+              <li>Earns ~50–100x more than Shorts per view</li>
+            </ul>
+            <div class="format-example">
+              <strong>Example:</strong> 100K views at $3 RPM = <strong>$300</strong>
+            </div>
+          </div>
+
+          <div class="format-vs" aria-hidden="true">VS</div>
+
+          <div class="format-card format-card--shorts">
+            <div class="format-icon" aria-hidden="true">📱</div>
+            <h3>YouTube Shorts</h3>
+            <div class="format-rpm-badge format-rpm-badge--low">Typical RPM: $0.03 – $0.12</div>
+            <ul>
+              <li>Revenue pooled across all Shorts creators</li>
+              <li>Lower per-view earnings</li>
+              <li>Excellent for rapid audience growth</li>
+              <li>Requires YouTube Partner Program</li>
+              <li>Great for top-of-funnel reach</li>
+            </ul>
+            <div class="format-example">
+              <strong>Example:</strong> 100K Shorts views at $0.08 RPM = <strong>$8</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Key insight:</strong> A long-form video with 100,000 views might earn $200–$800. The same 100,000 Shorts views would typically earn $3–$12. Long-form content generally earns <strong>50–100× more per view</strong> than Shorts. Use our <a href="#calculator">YouTube Shorts money calculator</a> in Advanced Mode above to compare based on your own audience data.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RPM BY COUNTRY ===== -->
+    <section class="content-section content-section--alt" id="rpm-by-country" aria-labelledby="country-heading">
+      <div class="container">
+        <h2 id="country-heading">YouTube RPM by Country</h2>
+        <p>Audience location is one of the biggest factors in your YouTube RPM. Advertisers pay significantly more to target users in high-income countries with strong consumer markets. Understanding YouTube RPM by country helps you set realistic earnings expectations and plan your content strategy.</p>
+
+        <div class="table-wrap">
+          <table class="data-table" aria-label="YouTube RPM by country estimates">
+            <thead>
+              <tr>
+                <th scope="col">Country / Region</th>
+                <th scope="col">Long-form RPM</th>
+                <th scope="col">Shorts RPM</th>
+                <th scope="col">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="flag" aria-hidden="true">🇺🇸</span> United States</td>
+                <td class="td-green"><strong>$4 – $12</strong></td>
+                <td>$0.08 – $0.18</td>
+                <td>Highest ad spend globally</td>
+              </tr>
+              <tr>
+                <td><span class="flag" aria-hidden="true">🇬🇧</span> United Kingdom</td>
+                <td class="td-green"><strong>$4 – $10</strong></td>
+                <td>$0.06 – $0.15</td>
+                <td>Second highest English-speaking market</td>
+              </tr>
+              <tr>
+                <td><span class="flag" aria-hidden="true">🇦🇺</span> Australia</td>
+                <td class="td-green"><strong>$4 – $9</strong></td>
+                <td>$0.06 – $0.14</td>
+                <td>Strong CPM market</td>
+              </tr>
+              <tr>
+                <td><span class="flag" aria-hidden="true">🇨🇦</span> Canada</td>
+                <td class="td-green"><strong>$3 – $8</strong></td>
+                <td>$0.05 – $0.12</td>
+                <td>Similar to UK market</td>
+              </tr>
+              <tr>
+                <td><span class="flag" aria-hidden="true">🇪🇺</span> Europe (avg.)</td>
+                <td><strong>$3 – $8</strong></td>
+                <td>$0.05 – $0.12</td>
+                <td>Varies significantly by country</td>
+              </tr>
+              <tr>
+                <td><span class="flag" aria-hidden="true">🇧🇷</span> Brazil</td>
+                <td><strong>$1 – $3</strong></td>
+                <td>$0.02 – $0.05</td>
+                <td>Growing market, lower CPM</td>
+              </tr>
+              <tr>
+                <td><span class="flag" aria-hidden="true">🇮🇳</span> India</td>
+                <td><strong>$0.50 – $2</strong></td>
+                <td>$0.01 – $0.03</td>
+                <td>Massive audience, low CPM</td>
+              </tr>
+              <tr>
+                <td><span class="flag" aria-hidden="true">🌏</span> Southeast Asia</td>
+                <td><strong>$0.50 – $2</strong></td>
+                <td>$0.01 – $0.03</td>
+                <td>Rapidly growing audience</td>
+              </tr>
+              <tr>
+                <td><span class="flag" aria-hidden="true">🌍</span> Africa</td>
+                <td><strong>$0.30 – $1.50</strong></td>
+                <td>$0.005 – $0.02</td>
+                <td>Lower advertiser demand</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="table-note">Note: These are approximate ranges based on typical creator-reported data and industry benchmarks. Actual RPM varies significantly by niche, engagement, seasonality, and channel size.</p>
+      </div>
+    </section>
+
+    <!-- ===== EARNINGS TABLES ===== -->
+    <section class="content-section" id="earnings-tables" aria-labelledby="tables-heading">
+      <div class="container">
+        <h2 id="tables-heading">Estimated YouTube Revenue by View Count</h2>
+        <p>The tables below show estimated earnings for different view counts using common RPM values. Use these as quick benchmarks to understand how much YouTube pays per 1,000 views or per million views at various RPM levels.</p>
+
+        <h3>Long-form Video Earnings Estimates</h3>
+        <p>Based on: Revenue = (Views ÷ 1,000) × RPM</p>
+        <div class="table-wrap">
+          <table class="data-table" aria-label="Long-form video earnings by view count">
+            <thead>
+              <tr>
+                <th scope="col">Monthly Views</th>
+                <th scope="col">RPM $2 <span class="th-note">(low)</span></th>
+                <th scope="col">RPM $5 <span class="th-note">(average)</span></th>
+                <th scope="col">RPM $10 <span class="th-note">(high)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>10,000</td><td>$20</td><td>$50</td><td>$100</td></tr>
+              <tr><td>50,000</td><td>$100</td><td>$250</td><td>$500</td></tr>
+              <tr><td>100,000</td><td>$200</td><td>$500</td><td>$1,000</td></tr>
+              <tr><td>500,000</td><td>$1,000</td><td>$2,500</td><td>$5,000</td></tr>
+              <tr class="tr-highlight">
+                <td><strong>1,000,000</strong></td>
+                <td><strong>$2,000</strong></td>
+                <td><strong>$5,000</strong></td>
+                <td><strong>$10,000</strong></td>
+              </tr>
+              <tr><td>5,000,000</td><td>$10,000</td><td>$25,000</td><td>$50,000</td></tr>
+              <tr><td>10,000,000</td><td>$20,000</td><td>$50,000</td><td>$100,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:40px">YouTube Shorts Earnings Estimates</h3>
+        <p>Shorts earn significantly less per view due to the pooled revenue model. Here's the YouTube money calculator per million views for Shorts:</p>
+        <div class="table-wrap">
+          <table class="data-table" aria-label="YouTube Shorts earnings by view count">
+            <thead>
+              <tr>
+                <th scope="col">Monthly Views</th>
+                <th scope="col">RPM $0.03 <span class="th-note">(low)</span></th>
+                <th scope="col">RPM $0.08 <span class="th-note">(average)</span></th>
+                <th scope="col">RPM $0.12 <span class="th-note">(high)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>100,000</td><td>$3.00</td><td>$8.00</td><td>$12.00</td></tr>
+              <tr><td>500,000</td><td>$15.00</td><td>$40.00</td><td>$60.00</td></tr>
+              <tr class="tr-highlight">
+                <td><strong>1,000,000</strong></td>
+                <td><strong>$30.00</strong></td>
+                <td><strong>$80.00</strong></td>
+                <td><strong>$120.00</strong></td>
+              </tr>
+              <tr><td>10,000,000</td><td>$300</td><td>$800</td><td>$1,200</td></tr>
+              <tr><td>100,000,000</td><td>$3,000</td><td>$8,000</td><td>$12,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="table-note">For a personalized estimate, use our <a href="#calculator">YouTube earnings calculator per 1000 views</a> above with your actual view count and RPM.</p>
+      </div>
+    </section>
+
+    <!-- ===== WHAT AFFECTS RPM ===== -->
+    <section class="content-section content-section--alt" id="what-affects-rpm" aria-labelledby="rpm-factors-heading">
+      <div class="container">
+        <h2 id="rpm-factors-heading">What Affects Your YouTube RPM?</h2>
+        <p>Your YouTube RPM is not fixed — it changes constantly based on multiple factors. Understanding what drives RPM higher or lower helps you make smarter content and channel decisions.</p>
+
+        <div class="factors-grid">
+          <div class="factor-card">
+            <div class="factor-icon" aria-hidden="true">🌍</div>
+            <h3>Audience Country</h3>
+            <p>The single biggest factor. US and UK viewers generate 5–20× more RPM than viewers from India or Southeast Asia. Growing a US/UK audience is the fastest way to increase RPM.</p>
+          </div>
+          <div class="factor-card">
+            <div class="factor-icon" aria-hidden="true">🎯</div>
+            <h3>Content Niche</h3>
+            <p>Finance, legal, SaaS, insurance, and real estate attract high-paying advertisers and yield $8–$20+ RPM. Entertainment and gaming typically earn $1–$5 RPM.</p>
+          </div>
+          <div class="factor-card">
+            <div class="factor-icon" aria-hidden="true">⏱️</div>
+            <h3>Watch Time</h3>
+            <p>Longer watch time enables mid-roll ads, increasing revenue per view. Videos over 8 minutes can include additional ad placements, significantly boosting RPM.</p>
+          </div>
+          <div class="factor-card">
+            <div class="factor-icon" aria-hidden="true">📅</div>
+            <h3>Seasonality</h3>
+            <p>Q4 (October–December) has the highest RPM of the year due to holiday advertising budgets. Q1 often sees a 20–40% RPM drop as advertisers reset budgets.</p>
+          </div>
+          <div class="factor-card">
+            <div class="factor-icon" aria-hidden="true">📢</div>
+            <h3>Advertiser Demand</h3>
+            <p>More advertisers competing for your audience = higher CPM = higher RPM. Trending topics and high-value keywords attract more ad spend to your content.</p>
+          </div>
+          <div class="factor-card">
+            <div class="factor-icon" aria-hidden="true">📱</div>
+            <h3>Content Format</h3>
+            <p>Long-form videos earn significantly more per view than Shorts. Live streams and Premieres may also have different monetization characteristics.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="content-section" id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+        <p>Common questions about YouTube earnings, RPM, and this calculator.</p>
+
+        <div class="faq-list" role="list">
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">
+              How much does YouTube pay per 1,000 views?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" hidden>
+              <p>YouTube pays creators through <strong>RPM (Revenue Per Mille)</strong>, which typically ranges from <strong>$1 to $10 per 1,000 views</strong> for long-form content. The exact amount depends heavily on your audience's country, content niche, and advertiser demand. US-based audiences tend to earn $4–$10 RPM, while Indian audiences average $0.50–$2 RPM. Your actual RPM is visible in YouTube Studio → Analytics → Revenue tab.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">
+              How much money does YouTube pay for 1 million views?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" hidden>
+              <p>For <strong>1 million long-form views</strong>, most YouTube creators earn between $1,000 and $10,000. A channel with a $3 RPM earns around $3,000. A finance or tech channel with $8–$10 RPM could earn $8,000–$10,000. For <strong>YouTube Shorts</strong>, 1 million views typically earns just $30–$120, since Shorts RPM is much lower ($0.03–$0.12). Use our <a href="#calculator">YouTube money calculator per million views</a> above to estimate your specific earnings.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">
+              What is a good YouTube RPM?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" hidden>
+              <p>For US-focused channels, <strong>$4–$8 RPM is average</strong> and $10+ RPM is excellent (common in finance, law, and B2B tech niches). For channels with mixed global audiences, $2–$5 RPM is typical. Shorts RPM is usually $0.03–$0.12 per 1,000 views. The best way to increase RPM is to create content targeting high-income countries and high-value advertising niches.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">
+              What is the difference between CPM and RPM on YouTube?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" hidden>
+              <p><strong>CPM (Cost Per Mille)</strong> is what advertisers pay per 1,000 ad impressions — the gross rate before YouTube takes its cut. <strong>RPM (Revenue Per Mille)</strong> is what creators actually receive per 1,000 total video views, after YouTube's 45% revenue share and after accounting for views where no ad was shown. A $10 CPM typically results in $3–$4 RPM for the creator. Always use RPM — not CPM — when calculating your actual earnings.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">
+              Do YouTube Shorts pay less than long videos?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" hidden>
+              <p>Yes, significantly. YouTube Shorts RPM typically ranges from <strong>$0.03 to $0.12 per 1,000 views</strong>, compared to $2–$10+ for long-form videos. This means long-form content earns roughly 50–100× more per view than Shorts. Shorts use a pooled revenue model where a portion of ad revenue from the Shorts feed is distributed among creators. Despite lower monetization per view, Shorts are valuable for growing your audience and subscriber base quickly.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">
+              Why does YouTube RPM vary by country?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" hidden>
+              <p>YouTube RPM varies by country because <strong>advertisers pay more to reach audiences in countries with higher purchasing power and more competitive advertising markets</strong>. US, UK, and Australian audiences command the highest RPMs ($5–$15+) because consumers in these markets have high disposable income. India, Southeast Asia, and African audiences typically generate lower RPMs ($0.50–$2) due to lower advertiser competition and consumer spending patterns. Use our <a href="#calculator">YouTube RPM by country calculator</a> in Advanced Mode to estimate based on your own audience mix.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">
+              Is this YouTube money calculator accurate?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" hidden>
+              <p>This tool provides <strong>estimates based on typical industry RPM ranges</strong> and is designed for planning and benchmarking. Actual YouTube earnings vary significantly based on your specific niche, audience engagement, watch time, ad density settings, and YouTube's actual algorithms. For real, precise data, always check <strong>YouTube Studio → Analytics → Revenue</strong>. The estimates here should be used as a ballpark reference, not a guaranteed income projection.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">
+              Can I estimate YouTube revenue based on audience location?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" hidden>
+              <p>Yes. Use our <strong>Advanced Mode</strong> to enter your audience distribution by region (USA, Europe, India, Other). The calculator automatically computes a <strong>weighted RPM</strong> based on typical regional earnings rates, giving you a more accurate estimate than using a flat global average. You can find your actual audience geography in YouTube Studio → Analytics → Audience → Geography tab.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo footer-logo" aria-label="YouTube Money Calculator">
+            <span class="logo-icon" aria-hidden="true">▶$</span>
+            <span class="logo-text">YT Money Calculator</span>
+          </a>
+          <p>Free YouTube earnings estimator for creators. Estimate revenue from views, RPM, Shorts, and audience location. Not affiliated with YouTube or Google.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="/#calculator">YouTube Money Calculator</a></li>
+            <li><a href="/youtube-shorts-money-calculator.html">Shorts Calculator</a></li>
+            <li><a href="/youtube-rpm-guide.html">RPM Guide</a></li>
+            <li><a href="/youtube-rpm-by-country.html">RPM by Country</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/how-much-youtube-pays-per-view.html">How Much YouTube Pays</a></li>
+            <li><a href="/youtube-money-calculator-per-million-views.html">Per Million Views Guide</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#rpm-guide">CPM vs RPM</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 YouTube Money Calculator. For estimation purposes only. Not affiliated with YouTube or Google. Actual earnings vary.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+# robots.txt — YouTube Money Calculator
+# https://example.com/
+
+# Allow all major crawlers
+User-agent: *
+Allow: /
+
+# Allow CSS and JS for proper rendering
+Allow: /style.css
+Allow: /script.js
+
+# Disallow internal/admin paths (add as needed)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Crawl-delay suggestion for heavy crawlers
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: DotBot
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://example.com/sitemap.xml
