@@ -10,8 +10,6 @@
 /**
  * Default RPM values by content type and region.
  * Sources: YouTube creator reports, industry data.
- * Long-form uses standard ad-supported RPM.
- * Shorts uses the pooled Shorts feed RPM.
  */
 const RPM_DATA = {
   longform: {
@@ -28,6 +26,10 @@ const RPM_DATA = {
   }
 };
 
+// Default Shorts RPM used in Basic Mode comparison
+// (representative mid-range value)
+const DEFAULT_SHORTS_RPM = 0.08;
+
 /* ===== STATE ===== */
 let currentMode        = 'basic';
 let currentContentType = 'longform';
@@ -36,7 +38,7 @@ let currentContentType = 'longform';
 
 function formatCurrency(value) {
   if (!isFinite(value) || value === null || value === undefined) return '—';
-  if (Math.abs(value) >= 0.01) {
+  if (Math.abs(value) >= 0.005) {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -44,7 +46,6 @@ function formatCurrency(value) {
       maximumFractionDigits: 2
     }).format(value);
   }
-  // Very small values — show more decimals
   return '$' + value.toFixed(4);
 }
 
@@ -73,7 +74,7 @@ function clamp(value, min, max) {
 /* ===== WEIGHTED RPM ===== */
 
 /**
- * Calculate weighted RPM based on audience distribution and content type.
+ * Calculate weighted RPM from audience distribution.
  * Formula: Σ (region_pct / 100) × region_RPM
  */
 function calcWeightedRPM(pcts, contentType) {
@@ -154,28 +155,46 @@ function displayResults({ rpm, monthly, views, mode, contentType }) {
   const daily  = monthly / 30;
   const yearly = monthly * 12;
 
-  document.getElementById('monthly-revenue').textContent = formatCurrency(monthly);
+  document.getElementById('monthly-revenue').textContent    = formatCurrency(monthly);
   document.getElementById('result-rpm').setAttribute('data-rpm', rpm);
-  document.getElementById('result-per-mille').textContent = formatRPM(rpm);
-  document.getElementById('result-daily').textContent     = formatCurrency(daily);
-  document.getElementById('result-yearly').textContent    = formatCurrency(yearly);
+  document.getElementById('result-per-mille').textContent   = formatRPM(rpm);
+  document.getElementById('result-daily').textContent       = formatCurrency(daily);
+  document.getElementById('result-yearly').textContent      = formatCurrency(yearly);
   document.getElementById('result-rpm-display').textContent = `at ${formatRPM(rpm)} RPM`;
   document.getElementById('results-mode-tag').textContent   =
-    mode === 'basic' ? 'Basic Mode' : `Advanced · ${contentType === 'longform' ? 'Long-form' : 'Shorts'}`;
+    mode === 'basic'
+      ? 'Basic Mode'
+      : `Advanced · ${contentType === 'longform' ? 'Long-form' : 'Shorts'}`;
 }
 
-/* ===== COMPARISON SECTION ===== */
+/* ===== COMPARISON CARD ===== */
 
 /**
- * Show side-by-side Long-form vs Shorts comparison.
- * Uses a default audience split if in Basic mode (no pcts provided).
+ * Always populates the Long-form vs Shorts comparison card.
+ *
+ * Basic Mode:
+ *   - Long-form RPM  = the slider value the user set (#basic-rpm)
+ *   - Shorts RPM     = DEFAULT_SHORTS_RPM (0.08, mid-range estimate)
+ *
+ * Advanced Mode:
+ *   - Both RPMs computed via weighted audience distribution.
+ *   - Runs even when percentages don't sum to 100 so the card
+ *     never stays blank; the main results area handles the
+ *     validation message separately.
  */
-function displayComparison(views, pcts) {
-  // Default distribution if in Basic mode
-  const dist = pcts || { usa: 30, europe: 25, india: 25, other: 20 };
+function updateComparisonCard() {
+  let views, lfRPM, shRPM;
 
-  const lfRPM = calcWeightedRPM(dist, 'longform');
-  const shRPM = calcWeightedRPM(dist, 'shorts');
+  if (currentMode === 'basic') {
+    views = parseFloat(document.getElementById('basic-views').value) || 0;
+    lfRPM = parseFloat(document.getElementById('basic-rpm').value)   || 0;
+    shRPM = DEFAULT_SHORTS_RPM;
+  } else {
+    views = parseFloat(document.getElementById('adv-views').value) || 0;
+    const pcts = getPercentages();
+    lfRPM = calcWeightedRPM(pcts, 'longform');
+    shRPM = calcWeightedRPM(pcts, 'shorts');
+  }
 
   const lfRevenue = (views / 1000) * lfRPM;
   const shRevenue = (views / 1000) * shRPM;
@@ -186,13 +205,12 @@ function displayComparison(views, pcts) {
   document.getElementById('cmp-lf-rpm').textContent       = formatRPM(lfRPM);
   document.getElementById('cmp-sh-rpm').textContent       = formatRPM(shRPM);
 
-  const ratio = lfRevenue > 0 && shRevenue > 0
-    ? Math.round(lfRevenue / shRevenue)
-    : null;
-
   const noteEl = document.getElementById('comparison-note');
-  if (ratio && ratio > 1) {
-    noteEl.textContent = `Long-form earns approximately ${ratio}× more than Shorts for the same view count.`;
+  if (lfRevenue > 0 && shRevenue > 0) {
+    const ratio = Math.round(lfRevenue / shRevenue);
+    noteEl.textContent = ratio > 1
+      ? `Long-form earns approximately ${ratio}× more than Shorts for the same view count.`
+      : '';
   } else {
     noteEl.textContent = '';
   }
@@ -207,7 +225,7 @@ function calculateBasic() {
   const monthly = (views / 1000) * rpm;
 
   displayResults({ rpm, monthly, views, mode: 'basic', contentType: null });
-  displayComparison(views, null);
+  updateComparisonCard();
 }
 
 /* ===== ADVANCED MODE CALCULATION ===== */
@@ -217,7 +235,6 @@ function calculateAdvanced() {
   const pcts  = getPercentages();
   const valid = validatePercentages();
 
-  // Determine RPM
   const customEnabled = document.getElementById('custom-rpm-toggle').checked;
   let rpm;
 
@@ -227,15 +244,14 @@ function calculateAdvanced() {
     rpm = calcWeightedRPM(pcts, currentContentType);
   }
 
-  // Revenue = (views / 1000) × RPM
-  // Note: RPM already represents revenue per 1,000 TOTAL views (not per monetized view),
-  // so no additional monetized-rate factor is needed for the core calculation.
   const monthly = (views / 1000) * rpm;
 
   displayResults({ rpm, monthly, views, mode: 'advanced', contentType: currentContentType });
-  displayComparison(views, valid ? pcts : null);
 
-  // Visual feedback on invalid distribution
+  // Comparison card always updates — it does not depend on validation
+  updateComparisonCard();
+
+  // Visual feedback when distribution is invalid (main results only)
   if (!valid && !customEnabled) {
     document.getElementById('monthly-revenue').textContent = '—';
   }
@@ -263,10 +279,8 @@ document.querySelectorAll('.mode-btn').forEach(btn => {
       b.setAttribute('aria-selected', String(isActive));
     });
 
-    const basicPanel    = document.getElementById('basic-mode');
-    const advancedPanel = document.getElementById('advanced-mode');
-    basicPanel.classList.toggle('hidden',    currentMode !== 'basic');
-    advancedPanel.classList.toggle('hidden', currentMode !== 'advanced');
+    document.getElementById('basic-mode').classList.toggle('hidden',    currentMode !== 'basic');
+    document.getElementById('advanced-mode').classList.toggle('hidden', currentMode !== 'advanced');
 
     recalculate();
   });
@@ -282,7 +296,6 @@ document.querySelectorAll('.content-btn').forEach(btn => {
       b.classList.toggle('active', b.dataset.type === currentContentType);
     });
 
-    // Update default monetized rate suggestion
     const rateInput = document.getElementById('monetized-rate');
     if (rateInput) {
       rateInput.value = currentContentType === 'longform' ? 40 : 100;
@@ -310,7 +323,6 @@ rpmSlider.addEventListener('input', () => {
 document.getElementById('basic-cpm').addEventListener('input', e => {
   const cpm = parseFloat(e.target.value);
   if (isFinite(cpm) && cpm > 0) {
-    // RPM ≈ CPM × ~0.45 (YouTube's share ~45%, monetized rate ~80%)
     const suggested = clamp(+(cpm * 0.45).toFixed(1), 0.5, 20);
     rpmSlider.value = suggested;
     rpmDisplay.textContent = formatRPM(suggested);
@@ -323,9 +335,7 @@ document.getElementById('basic-cpm').addEventListener('input', e => {
 
 ['adv-views', 'pct-usa', 'pct-europe', 'pct-india', 'pct-other', 'monetized-rate'].forEach(id => {
   const el = document.getElementById(id);
-  if (el) {
-    el.addEventListener('input', recalculate);
-  }
+  if (el) el.addEventListener('input', recalculate);
 });
 
 /* ===== CUSTOM RPM TOGGLE ===== */
@@ -348,18 +358,16 @@ document.getElementById('basic-views').addEventListener('input', recalculate);
 
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
-    const item     = btn.closest('.faq-item');
-    const isOpen   = item.classList.contains('open');
-    const answer   = item.querySelector('.faq-a');
+    const item   = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    const answer = item.querySelector('.faq-a');
 
-    // Close all open items
     document.querySelectorAll('.faq-item.open').forEach(el => {
       el.classList.remove('open');
       el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
       el.querySelector('.faq-a').hidden = true;
     });
 
-    // Toggle clicked item
     if (!isOpen) {
       item.classList.add('open');
       btn.setAttribute('aria-expanded', 'true');
@@ -370,8 +378,8 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 
 /* ===== MOBILE NAV TOGGLE ===== */
 
-const navToggle  = document.querySelector('.nav-toggle');
-const mobileNav  = document.getElementById('mobile-nav');
+const navToggle = document.querySelector('.nav-toggle');
+const mobileNav = document.getElementById('mobile-nav');
 
 if (navToggle && mobileNav) {
   navToggle.addEventListener('click', () => {
@@ -380,7 +388,6 @@ if (navToggle && mobileNav) {
     mobileNav.setAttribute('aria-hidden', String(!isOpen));
   });
 
-  // Close on mobile nav link click
   mobileNav.querySelectorAll('.mobile-nav-link').forEach(link => {
     link.addEventListener('click', () => {
       mobileNav.classList.remove('open');
@@ -389,7 +396,6 @@ if (navToggle && mobileNav) {
     });
   });
 
-  // Close on outside click
   document.addEventListener('click', e => {
     if (!mobileNav.contains(e.target) && !navToggle.contains(e.target)) {
       mobileNav.classList.remove('open');
@@ -401,19 +407,12 @@ if (navToggle && mobileNav) {
 /* ===== INITIALIZE ===== */
 
 function init() {
-  // Set initial slider appearance
   updateSliderTrack();
-  const initialRPM = parseFloat(rpmSlider.value);
-  rpmDisplay.textContent = formatRPM(initialRPM);
-
-  // Set initial RPM hints for advanced mode
+  rpmDisplay.textContent = formatRPM(parseFloat(rpmSlider.value));
   updateRPMHints();
-
-  // Run initial calculation
   recalculate();
 }
 
-// Run on DOM ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {
