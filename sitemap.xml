@@ -6,7 +6,7 @@
 
   <!-- Home: Main YouTube Money Calculator -->
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://ytbmoney.pages.dev/</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- YouTube RPM Guide -->
   <url>
-    <loc>https://example.com/youtube-rpm-guide.html</loc>
+    <loc>https://ytbmoney.pages.dev/youtube-rpm-guide.html</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -22,7 +22,7 @@
 
   <!-- How Much YouTube Pays Per View -->
   <url>
-    <loc>https://example.com/how-much-youtube-pays-per-view.html</loc>
+    <loc>https://ytbmoney.pages.dev/how-much-youtube-pays-per-view.html</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -30,7 +30,7 @@
 
   <!-- YouTube Shorts Money Calculator -->
   <url>
-    <loc>https://example.com/youtube-shorts-money-calculator.html</loc>
+    <loc>https://ytbmoney.pages.dev/youtube-shorts-money-calculator.html</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -38,7 +38,7 @@
 
   <!-- YouTube Money Calculator Per Million Views -->
   <url>
-    <loc>https://example.com/youtube-money-calculator-per-million-views.html</loc>
+    <loc>https://ytbmoney.pages.dev/youtube-money-calculator-per-million-views.html</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -46,10 +46,42 @@
 
   <!-- YouTube RPM by Country -->
   <url>
-    <loc>https://example.com/youtube-rpm-by-country.html</loc>
+    <loc>https://ytbmoney.pages.dev/youtube-rpm-by-country.html</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://ytbmoney.pages.dev/about.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://ytbmoney.pages.dev/privacy.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://ytbmoney.pages.dev/contact.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Disclaimer -->
+  <url>
+    <loc>https://ytbmoney.pages.dev/disclaimer.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>
