@@ -14,6 +14,38 @@
   <meta property="og:image" content="https://ytbmoney.pages.dev/og-image.svg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "YouTube Money Calculator Per Million Views – How Much Do You Earn?",
+    "description": "How much does YouTube pay for 1 million views? Estimate earnings per million views based on RPM, niche, and audience country.",
+    "url": "https://ytbmoney.pages.dev/youtube-money-calculator-per-million-views.html",
+    "author": { "@type": "Organization", "name": "YouTube Money Calculator" },
+    "publisher": { "@type": "Organization", "name": "YouTube Money Calculator" },
+    "mainEntity": {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does YouTube pay for 1 million views?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "YouTube typically pays between $1,000 and $10,000 for 1 million long-form views, depending on RPM. A $3 RPM channel earns $3,000. A finance channel at $10 RPM earns $10,000. YouTube Shorts at $0.08 RPM would earn just $80 per million views."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a YouTuber with 1 million subscribers make?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Earnings depend on views, not just subscriber count. A 1 million subscriber channel getting 500,000 monthly views at $3 RPM earns about $1,500/month. At $8 RPM it would earn $4,000/month. Subscribers alone don't determine income — views and RPM do."
+          }
+        }
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -52,7 +84,7 @@
       <div class="container">
 
         <h2>YouTube Earnings for 1 Million Views</h2>
-        <p>Using the formula <strong>Revenue = (1,000,000 ÷ 1,000) × RPM = 1,000 × RPM</strong>, here is what different RPM levels yield for 1 million views:</p>
+        <p>Using the formula <strong>Revenue = (1,000,000 ÷ 1,000) × RPM = 1,000 × RPM</strong>, here is what different RPM levels yield for 1 million views. Your RPM depends heavily on your <a href="/youtube-rpm-by-country.html">audience's country</a> and content niche — see our <a href="/youtube-rpm-guide.html">RPM guide</a> for a full breakdown.</p>
 
         <div class="table-wrap" style="margin-top:20px">
           <table class="data-table">
@@ -107,6 +139,56 @@
       </div>
     </section>
 
+    <section class="content-section content-section--alt" id="faq">
+      <div class="container">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-list" role="list">
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">
+              How much does YouTube pay for 1 million views?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" hidden>
+              <p>YouTube typically pays between <strong>$1,000 and $10,000</strong> for 1 million long-form views, depending on RPM. A $3 RPM channel earns $3,000. A finance or tech channel at $10 RPM earns $10,000. For <a href="/youtube-shorts-money-calculator.html">YouTube Shorts</a>, 1 million views earns just $30–$120 at typical RPM rates of $0.03–$0.12.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">
+              How much does a YouTuber with 1 million subscribers make?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" hidden>
+              <p>Subscribers alone don't determine income — <strong>views and RPM do</strong>. A 1 million subscriber channel getting 500,000 monthly views at $3 RPM earns about $1,500/month. The same channel at $8 RPM would earn $4,000/month. Use our <a href="/">YouTube money calculator</a> to estimate based on your actual view count and RPM.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">
+              Is $1,000 per million views good for YouTube?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" hidden>
+              <p>$1,000 per million views corresponds to a $1 RPM, which is on the low end. This typically reflects entertainment or gaming content with a global or India-heavy audience. The average long-form creator earns <strong>$2,000–$5,000 per million views</strong>. High-RPM niches like finance or B2B software can earn $8,000–$15,000+ per million views.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">
+              How many views do you need to make $1,000 per month on YouTube?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" hidden>
+              <p>At a $3 RPM average, you need approximately <strong>333,000 monthly views</strong> to earn $1,000/month. At $5 RPM, you need 200,000 views. At $1 RPM, you need 1 million views. Use our <a href="/">YouTube earnings calculator</a> to find your exact number based on your niche and audience country.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
@@ -138,10 +220,29 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 YouTube Money Calculator. For estimation purposes only. Not affiliated with YouTube or Google.</p>
+        <p>&copy; 2026 YouTube Money Calculator. For estimation purposes only. Not affiliated with YouTube or Google.</p>
       </div>
     </div>
   </footer>
 
+  <script>
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        const answer = item.querySelector('.faq-a');
+        document.querySelectorAll('.faq-item.open').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+          el.querySelector('.faq-a').hidden = true;
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          answer.hidden = false;
+        }
+      });
+    });
+  </script>
 </body>
 </html>

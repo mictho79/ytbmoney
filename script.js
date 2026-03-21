@@ -156,7 +156,6 @@ function displayResults({ rpm, monthly, views, mode, contentType }) {
   const yearly = monthly * 12;
 
   document.getElementById('monthly-revenue').textContent    = formatCurrency(monthly);
-  document.getElementById('result-rpm').setAttribute('data-rpm', rpm);
   document.getElementById('result-per-mille').textContent   = formatRPM(rpm);
   document.getElementById('result-daily').textContent       = formatCurrency(daily);
   document.getElementById('result-yearly').textContent      = formatCurrency(yearly);
