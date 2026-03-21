@@ -13,6 +13,18 @@
 
   <link rel="canonical" href="https://ytbmoney.pages.dev/">
 
+  <script>
+    (function() {
+      if (localStorage.getItem('lang-redirected')) return;
+      var lang = (navigator.language || navigator.userLanguage || '').toLowerCase().split('-')[0];
+      var map = { fr: '/fr/', es: '/es/', pt: '/pt/' };
+      if (map[lang]) {
+        localStorage.setItem('lang-redirected', '1');
+        location.replace(map[lang]);
+      }
+    })();
+  </script>
+
   <link rel="alternate" hreflang="en" href="https://ytbmoney.pages.dev/" />
   <link rel="alternate" hreflang="es" href="https://ytbmoney.pages.dev/es/" />
   <link rel="alternate" hreflang="pt-BR" href="https://ytbmoney.pages.dev/pt/" />
