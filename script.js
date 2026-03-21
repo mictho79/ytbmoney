@@ -5,6 +5,45 @@
 
 'use strict';
 
+/* ===== I18N ===== */
+const LANG = (document.documentElement.lang || 'en').split('-')[0];
+const T = {
+  en: {
+    at_rpm:      (r) => `at ${r} RPM`,
+    basic_mode:  'Basic Mode',
+    advanced_lf: 'Advanced · Long-form',
+    advanced_sh: 'Advanced · Shorts',
+    lf_earns:    (n) => `Long-form earns approximately ${n}× more than Shorts for the same view count.`,
+  },
+  fr: {
+    at_rpm:      (r) => `à ${r} RPM`,
+    basic_mode:  'Mode Simple',
+    advanced_lf: 'Avancé · Vidéo Longue',
+    advanced_sh: 'Avancé · Shorts',
+    lf_earns:    (n) => `La vidéo longue rapporte environ ${n}× plus que les Shorts pour le même nombre de vues.`,
+  },
+  es: {
+    at_rpm:      (r) => `a ${r} RPM`,
+    basic_mode:  'Modo Básico',
+    advanced_lf: 'Avanzado · Video Largo',
+    advanced_sh: 'Avanzado · Shorts',
+    lf_earns:    (n) => `El video largo genera aproximadamente ${n}× más que los Shorts para el mismo número de vistas.`,
+  },
+  pt: {
+    at_rpm:      (r) => `a ${r} RPM`,
+    basic_mode:  'Modo Básico',
+    advanced_lf: 'Avançado · Vídeo Longo',
+    advanced_sh: 'Avançado · Shorts',
+    lf_earns:    (n) => `O vídeo longo gera aproximadamente ${n}× mais que os Shorts para o mesmo número de visualizações.`,
+  },
+}[LANG] || {
+  at_rpm:      (r) => `at ${r} RPM`,
+  basic_mode:  'Basic Mode',
+  advanced_lf: 'Advanced · Long-form',
+  advanced_sh: 'Advanced · Shorts',
+  lf_earns:    (n) => `Long-form earns approximately ${n}× more than Shorts for the same view count.`,
+};
+
 /* ===== CONSTANTS ===== */
 
 /**
@@ -159,11 +198,11 @@ function displayResults({ rpm, monthly, views, mode, contentType }) {
   document.getElementById('result-per-mille').textContent   = formatRPM(rpm);
   document.getElementById('result-daily').textContent       = formatCurrency(daily);
   document.getElementById('result-yearly').textContent      = formatCurrency(yearly);
-  document.getElementById('result-rpm-display').textContent = `at ${formatRPM(rpm)} RPM`;
+  document.getElementById('result-rpm-display').textContent = T.at_rpm(formatRPM(rpm));
   document.getElementById('results-mode-tag').textContent   =
     mode === 'basic'
-      ? 'Basic Mode'
-      : `Advanced · ${contentType === 'longform' ? 'Long-form' : 'Shorts'}`;
+      ? T.basic_mode
+      : (contentType === 'longform' ? T.advanced_lf : T.advanced_sh);
 }
 
 /* ===== COMPARISON CARD ===== */
@@ -207,9 +246,7 @@ function updateComparisonCard() {
   const noteEl = document.getElementById('comparison-note');
   if (lfRevenue > 0 && shRevenue > 0) {
     const ratio = Math.round(lfRevenue / shRevenue);
-    noteEl.textContent = ratio > 1
-      ? `Long-form earns approximately ${ratio}× more than Shorts for the same view count.`
-      : '';
+    noteEl.textContent = ratio > 1 ? T.lf_earns(ratio) : '';
   } else {
     noteEl.textContent = '';
   }
