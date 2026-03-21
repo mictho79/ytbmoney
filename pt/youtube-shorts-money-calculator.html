@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Ganhos do YouTube Shorts – Estime seus Ganhos com Shorts</title>
+  <meta name="description" content="Calculadora gratuita de ganhos do YouTube Shorts. Estime quanto o YouTube paga por visualizações de Shorts e compare com vídeos longos.">
+  <link rel="canonical" href="https://ytbmoney.pages.dev/pt/youtube-shorts-money-calculator.html">
+
+  <link rel="alternate" hreflang="en" href="https://ytbmoney.pages.dev/youtube-shorts-money-calculator.html" />
+  <link rel="alternate" hreflang="es" href="https://ytbmoney.pages.dev/es/youtube-shorts-money-calculator.html" />
+  <link rel="alternate" hreflang="pt-BR" href="https://ytbmoney.pages.dev/pt/youtube-shorts-money-calculator.html" />
+  <link rel="alternate" hreflang="x-default" href="https://ytbmoney.pages.dev/youtube-shorts-money-calculator.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:title" content="Calculadora de Ganhos do YouTube Shorts – Estime seus Ganhos com Shorts">
+  <meta property="og:description" content="Quanto ganham os YouTube Shorts? Use nossa calculadora gratuita de Shorts para estimar ganhos com qualquer número de visualizações. Inclui comparação com o RPM de vídeos longos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ytbmoney.pages.dev/pt/youtube-shorts-money-calculator.html">
+  <meta property="og:image" content="https://ytbmoney.pages.dev/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Calculadora de Ganhos do YouTube Shorts",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "description": "Calcule os ganhos estimados do YouTube Shorts por número de visualizações, com comparações de RPM por país da audiência.",
+    "url": "https://ytbmoney.pages.dev/pt/youtube-shorts-money-calculator.html",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <span class="logo-icon">▶$</span>
+          <span class="logo-text">YT Money Calculator</span>
+        </a>
+        <nav class="main-nav" aria-label="Navegação principal">
+          <a href="/">Calculadora</a>
+          <a href="/pt/youtube-rpm-guide.html">Guia RPM</a>
+          <a href="/#shorts-vs-longform">Shorts vs Vídeo Longo</a>
+          <a href="/#faq">FAQ</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" style="padding:56px 0 40px">
+      <div class="container">
+        <div class="hero-badge">📱 Calculadora de Shorts</div>
+        <h1>Calculadora de Ganhos do YouTube Shorts</h1>
+        <p class="hero-tagline">Estime quanto o YouTube paga pelas suas visualizações de Shorts.</p>
+        <p class="hero-desc">Os YouTube Shorts ganham significativamente menos por visualização do que os vídeos longos. Use esta calculadora de ganhos do YouTube Shorts para estimar a receita com qualquer número de visualizações e entender como a monetização de Shorts se compara com a de vídeos normais.</p>
+        <div class="hero-nav">
+          <a href="#shorts-calc" class="btn btn-primary">Calcular Ganhos de Shorts</a>
+          <a href="/" class="btn btn-ghost">Calculadora Completa (Vídeo Longo + Shorts)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALCULADORA RÁPIDA DE SHORTS -->
+    <section class="calculator-section" id="shorts-calc">
+      <div class="container">
+        <div class="calc-header">
+          <h2>Estimador de Ganhos de Shorts</h2>
+          <p>Insira suas visualizações mensais de Shorts e selecione sua região de audiência principal para obter uma estimativa de ganhos.</p>
+        </div>
+
+        <div class="calculator-card">
+          <div class="calc-panel">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="sh-views">Visualizações Mensais de Shorts</label>
+                <input type="number" id="sh-views" value="1000000" min="0" step="10000" class="form-input">
+                <span class="form-hint">Insira seu número estimado de visualizações mensais em todos os seus Shorts.</span>
+              </div>
+              <div class="form-group">
+                <label for="sh-rpm">RPM de Shorts
+                  <span class="rpm-badge" id="sh-rpm-display">$0.08</span>
+                </label>
+                <input type="range" id="sh-rpm" min="0.01" max="0.25" step="0.005" value="0.08"
+                  class="slider" aria-label="RPM de Shorts">
+                <div class="slider-labels">
+                  <span>$0.01</span>
+                  <span>$0.25</span>
+                </div>
+                <span class="form-hint">RPM típico de Shorts: $0.03 (baixo) – $0.12 (alto). Audiências com maioria dos EUA ganham mais.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="results-section">
+            <div class="results-label-row">
+              <h3 class="results-heading">Estimativa de Ganhos de Shorts</h3>
+              <span class="results-mode-tag">YouTube Shorts</span>
+            </div>
+            <div class="results-grid">
+              <div class="result-card result-card--main">
+                <div class="result-label">Receita Mensal</div>
+                <div class="result-value result-value--primary" id="sh-monthly">$80.00</div>
+                <div class="result-sub" id="sh-rpm-used">a $0.08 RPM</div>
+              </div>
+              <div class="result-card">
+                <div class="result-label">Por 1.000 Views</div>
+                <div class="result-value" id="sh-per-mille">$0.08</div>
+              </div>
+              <div class="result-card">
+                <div class="result-label">Estimativa Diária</div>
+                <div class="result-value" id="sh-daily">$2.67</div>
+              </div>
+              <div class="result-card">
+                <div class="result-label">Estimativa Anual</div>
+                <div class="result-value" id="sh-yearly">$960.00</div>
+              </div>
+            </div>
+            <div class="comparison-card">
+              <div class="comparison-card-header">
+                <h3>Comparação Shorts vs Vídeo Longo</h3>
+                <p class="comparison-desc">As mesmas <strong id="sh-compare-views">1.000.000</strong> visualizações em vídeo longo ganhariam aproximadamente:</p>
+              </div>
+              <div class="comparison-grid">
+                <div class="comparison-item comparison-item--shorts">
+                  <div class="comparison-type">📱 YouTube Shorts</div>
+                  <div class="comparison-value" id="sh-shorts-val">$80.00</div>
+                  <div class="comparison-rpm">a $0.08 RPM</div>
+                </div>
+                <div class="comparison-divider">VS</div>
+                <div class="comparison-item comparison-item--longform">
+                  <div class="comparison-type">📹 Vídeo Longo</div>
+                  <div class="comparison-value" id="sh-lf-val">$3,000.00</div>
+                  <div class="comparison-rpm">a $3.00 RPM (méd.)</div>
+                </div>
+              </div>
+              <p class="comparison-note" id="sh-ratio-note">O vídeo longo ganha aproximadamente 37× mais do que os Shorts para o mesmo número de visualizações.</p>
+            </div>
+            <div class="disclaimer">
+              ⚠ <strong>Aviso:</strong> Estas estimativas são apenas para fins informativos. Os ganhos reais de Shorts variam com base no país da sua audiência, nicho e modelo de receita compartilhada de Shorts do YouTube. Consulte o YouTube Studio para dados reais.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA A MONETIZAÇÃO DE SHORTS -->
+    <section class="content-section content-section--alt">
+      <div class="container">
+        <h2>Como Funciona a Monetização do YouTube Shorts</h2>
+        <p>O YouTube Shorts usa um modelo de monetização diferente do dos vídeos longos. Em vez de colocações de anúncios individuais em cada Short, o YouTube agrupa a receita publicitária do feed de Shorts e a distribui entre os criadores elegíveis com base na sua parcela do total de visualizações de Shorts. Para entender como isso se compara ao RPM de vídeos longos, veja nosso <a href="/pt/youtube-rpm-guide.html">guia de RPM do YouTube</a>.</p>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-icon">🏊</div>
+            <h3>Modelo de Receita Compartilhada</h3>
+            <p>A receita publicitária do feed de Shorts é agrupada. Seus ganhos dependem da sua porcentagem do total de visualizações no pool — não de colocações de anúncios individuais.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">💳</div>
+            <h3>Fundo de Criadores vs YPP</h3>
+            <p>A monetização de Shorts agora faz parte do Programa de Parceiros do YouTube (YPP), substituindo o antigo Fundo de Criadores. Você precisa de 1.000 inscritos e 10 milhões de visualizações de Shorts em 90 dias para se qualificar.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📊</div>
+            <h3>RPM Mais Baixo que Vídeos Longos</h3>
+            <p>Os Shorts geralmente ganham $0.03–$0.12 de RPM comparado a $2–$10+ para vídeos longos. Isso significa que você precisa de muito mais visualizações de Shorts para ganhar o mesmo que com conteúdo longo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABELA DE GANHOS DE SHORTS -->
+    <section class="content-section">
+      <div class="container">
+        <h2>Ganhos do YouTube Shorts por Número de Visualizações</h2>
+        <p>Tabela de referência mostrando a receita estimada de Shorts em diferentes níveis de RPM. Use a calculadora acima para uma estimativa personalizada.</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Visualizações Mensais</th>
+                <th>RPM $0.03 (baixo)</th>
+                <th>RPM $0.08 (médio)</th>
+                <th>RPM $0.12 (alto)</th>
+                <th>Vídeo Longo a $3 RPM</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>100.000</td><td>$3</td><td>$8</td><td>$12</td><td>$300</td></tr>
+              <tr><td>500.000</td><td>$15</td><td>$40</td><td>$60</td><td>$1.500</td></tr>
+              <tr class="tr-highlight"><td><strong>1.000.000</strong></td><td><strong>$30</strong></td><td><strong>$80</strong></td><td><strong>$120</strong></td><td><strong>$3.000</strong></td></tr>
+              <tr><td>5.000.000</td><td>$150</td><td>$400</td><td>$600</td><td>$15.000</td></tr>
+              <tr><td>10.000.000</td><td>$300</td><td>$800</td><td>$1.200</td><td>$30.000</td></tr>
+              <tr><td>100.000.000</td><td>$3.000</td><td>$8.000</td><td>$12.000</td><td>$300.000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">A coluna de comparação com vídeo longo usa uma base de $3 de RPM, que é conservadora. Canais de alto RPM ganham consideravelmente mais por visualização com conteúdo longo.</p>
+
+        <div class="callout" style="margin-top:32px">
+          <strong>Dica de estratégia:</strong> A maioria dos criadores de sucesso usa os Shorts para <strong>crescimento de audiência e descoberta</strong>, depois direciona os novos inscritos ao seu conteúdo longo onde acontece a monetização real. Os Shorts podem ser uma poderosa ferramenta de topo de funil mesmo que os ganhos diretos por visualização sejam baixos.
+        </div>
+
+        <div class="cta-inline" style="margin-top:40px">
+          <p>Compare os ganhos de Shorts e vídeos longos lado a lado:</p>
+          <a href="/#calculator" class="btn btn-primary">Experimentar o Modo Avançado</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo footer-logo">
+            <span class="logo-icon">▶$</span>
+            <span class="logo-text">YT Money Calculator</span>
+          </a>
+          <p>Estimador gratuito de ganhos do YouTube. Não é afiliado ao YouTube ou Google.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Ferramentas</h4>
+          <ul>
+            <li><a href="/">Calculadora do YouTube</a></li>
+            <li><a href="/pt/youtube-rpm-guide.html">Guia RPM</a></li>
+            <li><a href="/pt/youtube-rpm-by-country.html">RPM por País</a></li>
+            <li><a href="/pt/how-much-youtube-pays-per-view.html">Quanto o YouTube Paga</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="/about.html">Sobre</a></li>
+            <li><a href="/privacy.html">Política de Privacidade</a></li>
+            <li><a href="/disclaimer.html">Aviso Legal</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 YouTube Money Calculator. Apenas para fins de estimativa. Não é afiliado ao YouTube ou Google.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Calculadora mini da página de Shorts
+    const shViews    = document.getElementById('sh-views');
+    const shRpmSlider = document.getElementById('sh-rpm');
+    const shRpmDisplay = document.getElementById('sh-rpm-display');
+
+    function fmtCurrency(v) {
+      if (!isFinite(v)) return '—';
+      return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD',
+        minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(v);
+    }
+    function fmtNum(v) {
+      return new Intl.NumberFormat('en-US').format(Math.round(v));
+    }
+
+    function updateShSlider() {
+      const min = parseFloat(shRpmSlider.min);
+      const max = parseFloat(shRpmSlider.max);
+      const val = parseFloat(shRpmSlider.value);
+      const pct = ((val - min) / (max - min)) * 100;
+      shRpmSlider.style.background = `linear-gradient(to right, #FF0000 0%, #FF0000 ${pct}%, #E5E7EB ${pct}%, #E5E7EB 100%)`;
+      shRpmDisplay.textContent = '$' + val.toFixed(3);
+    }
+
+    function calcShorts() {
+      const views = parseFloat(shViews.value) || 0;
+      const rpm   = parseFloat(shRpmSlider.value) || 0;
+      const monthly = (views / 1000) * rpm;
+      const daily   = monthly / 30;
+      const yearly  = monthly * 12;
+      const lfMonthly = (views / 1000) * 3; // avg $3 RPM for comparison
+      const ratio = lfMonthly > 0 && monthly > 0 ? Math.round(lfMonthly / monthly) : 0;
+
+      document.getElementById('sh-monthly').textContent      = fmtCurrency(monthly);
+      document.getElementById('sh-rpm-used').textContent     = 'a $' + rpm.toFixed(3) + ' RPM';
+      document.getElementById('sh-per-mille').textContent    = '$' + rpm.toFixed(3);
+      document.getElementById('sh-daily').textContent        = fmtCurrency(daily);
+      document.getElementById('sh-yearly').textContent       = fmtCurrency(yearly);
+      document.getElementById('sh-compare-views').textContent = fmtNum(views);
+      document.getElementById('sh-shorts-val').textContent   = fmtCurrency(monthly);
+      document.getElementById('sh-lf-val').textContent       = fmtCurrency(lfMonthly);
+      document.getElementById('sh-ratio-note').textContent   = ratio > 1
+        ? `O vídeo longo ganha aproximadamente ${ratio}× mais do que os Shorts para o mesmo número de visualizações.`
+        : '';
+    }
+
+    shRpmSlider.addEventListener('input', () => { updateShSlider(); calcShorts(); });
+    shViews.addEventListener('input', calcShorts);
+
+    updateShSlider();
+    calcShorts();
+  </script>
+</body>
+</html>
