@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Earnings Per Video Calculator – Revenue for a Single Video</title>
+  <meta name="description" content="Calculate YouTube earnings for a single video. Enter views, RPM, video length, and niche to estimate exact revenue. Includes mid-roll ad bonus calculator.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ytbmoney.pages.dev/youtube-earnings-per-video.html">
+  <link rel="alternate" hreflang="en"    href="https://ytbmoney.pages.dev/youtube-earnings-per-video.html" />
+  <link rel="alternate" hreflang="fr"    href="https://ytbmoney.pages.dev/fr/youtube-earnings-per-video.html" />
+  <link rel="alternate" hreflang="es"    href="https://ytbmoney.pages.dev/es/youtube-earnings-per-video.html" />
+  <link rel="alternate" hreflang="pt-BR" href="https://ytbmoney.pages.dev/pt/youtube-earnings-per-video.html" />
+  <link rel="alternate" hreflang="x-default" href="https://ytbmoney.pages.dev/youtube-earnings-per-video.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#FF0000">
+  <meta property="og:title" content="YouTube Earnings Per Video Calculator – Revenue for a Single Video">
+  <meta property="og:description" content="Calculate YouTube earnings for a single video. Enter views, RPM, video length, and niche to estimate exact revenue. Includes mid-roll ad bonus calculator.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ytbmoney.pages.dev/youtube-earnings-per-video.html">
+  <meta property="og:image" content="https://ytbmoney.pages.dev/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "YouTube Earnings Per Video Calculator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "description": "Free YouTube earnings per video calculator — estimate revenue for a single video based on views, RPM, video length, and mid-roll ad status.",
+        "url": "https://ytbmoney.pages.dev/youtube-earnings-per-video.html",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does a YouTube video make with 100K views?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A YouTube video with 100,000 views earns approximately $100–$1,000 depending on niche and RPM. At a $3 RPM, 100K views generates about $300. Finance videos at $12 RPM would earn $1,200 for the same view count. Enabling mid-roll ads on 8+ minute videos adds another 35–55% to earnings."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do longer YouTube videos earn more money?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, longer YouTube videos earn more money because videos over 8 minutes can include mid-roll ads. Mid-roll ads typically increase video revenue by 35–55% compared to pre-roll only. Videos over 15 minutes can place even more mid-roll ads, potentially increasing earnings by up to 55%."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<div class="red-top-bar"></div>
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="YouTube Money Calculator Home">
+        <span class="logo-icon" aria-hidden="true">▶$</span>
+        <span class="logo-text">YT Money Calculator</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/">Calculator</a>
+        <a href="/youtube-rpm-guide.html">RPM Guide</a>
+        <a href="/youtube-rpm-by-country.html">By Country</a>
+        <a href="/youtube-shorts-money-calculator.html">Shorts</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <a href="/" class="mobile-nav-link">Calculator</a>
+  <a href="/youtube-rpm-guide.html" class="mobile-nav-link">RPM Guide</a>
+  <a href="/youtube-rpm-by-country.html" class="mobile-nav-link">By Country</a>
+  <a href="/youtube-shorts-money-calculator.html" class="mobile-nav-link">Shorts</a>
+  <a href="/blog/" class="mobile-nav-link">Blog</a>
+</div>
+
+<main>
+
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge">🆓 Free Tool · No Sign-up</div>
+          <h1>YouTube Earnings Per Video Calculator</h1>
+          <div class="accent-line"></div>
+          <p class="hero-desc">Calculate how much a single YouTube video earns based on view count, RPM, video length, and whether mid-roll ads are enabled. See the exact bonus from longer videos with mid-roll placements.</p>
+          <div class="hero-nav">
+            <a href="#calculator" class="btn btn-primary">Calculate Video Earnings</a>
+            <a href="#video-revenue" class="btn btn-ghost">How YouTube calculates per-video revenue ↓</a>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-value">$1–$50</div>
+            <div class="stat-label">Per 10K views</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">Mid-rolls +35–50%</div>
+            <div class="stat-label">Revenue from mid-roll ads</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">8+ min</div>
+            <div class="stat-label">Enables mid-roll ads</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ad-slot-wrap">
+    <div class="container">
+      <div class="ad-slot">
+        <ins class="adsbygoogle" style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto" data-full-width-responsive="true"></ins>
+      </div>
+    </div>
+  </div>
+
+  <section class="calculator-section" id="calculator" aria-label="YouTube Earnings Per Video Calculator">
+    <div class="container">
+      <div class="calc-header">
+        <h2>YouTube Earnings Per Video Calculator</h2>
+        <p>Enter your video stats to calculate total earnings for a single video.</p>
+      </div>
+      <div class="calculator-card">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="vid-views">Video Views</label>
+            <input type="number" id="vid-views" value="50000" min="0" step="1000" class="form-input">
+            <span class="form-hint">Total view count for this specific video.</span>
+          </div>
+          <div class="form-group">
+            <label for="vid-rpm">RPM ($)</label>
+            <input type="number" id="vid-rpm" value="3" min="0" step="0.5" class="form-input">
+            <span class="form-hint">Your channel RPM from YouTube Studio Analytics.</span>
+          </div>
+          <div class="form-group">
+            <label for="vid-length">Video Length (minutes)</label>
+            <input type="number" id="vid-length" value="8" min="0" step="1" class="form-input">
+            <span class="form-hint">Videos 8+ min can enable mid-roll ads for extra revenue.</span>
+          </div>
+          <div class="form-group">
+            <label for="vid-midroll" style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+              <input type="checkbox" id="vid-midroll" checked style="width:auto;margin:0;">
+              Mid-roll ads enabled
+            </label>
+            <span class="form-hint">Check if you've enabled mid-roll ads on this video (requires 8+ min).</span>
+          </div>
+        </div>
+        <div class="results-grid" style="margin-top:24px;">
+          <div class="result-card result-card--main">
+            <div class="result-value result-value--primary" id="r-video">$202.50</div>
+            <div class="result-label">Total video earnings</div>
+          </div>
+          <div class="result-card">
+            <div class="result-value" id="r-1k">$4.05 per 1K</div>
+            <div class="result-label">Effective RPM</div>
+          </div>
+          <div class="result-card">
+            <div class="result-value" id="r-ads">+35% from mid-rolls</div>
+            <div class="result-label">Mid-roll bonus</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ad-slot-wrap">
+    <div class="container">
+      <div class="ad-slot">
+        <ins class="adsbygoogle"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="rectangle" style="display:inline-block;width:300px;height:250px"></ins>
+      </div>
+    </div>
+  </div>
+
+  <section class="content-section" id="video-revenue">
+    <div class="container">
+      <div class="article-body">
+        <h2>How YouTube Calculates Per-Video Revenue</h2>
+        <p>YouTube ad revenue for a single video depends on three primary factors: view count, ad impressions (which depends on where ads appear), and CPM bids from advertisers. The RPM figure in your YouTube Studio Analytics represents what you actually receive — approximately 55% of the advertiser's CPM — per 1,000 views.</p>
+        <p>The formula for a single video's earnings is straightforward: <strong>(Video Views ÷ 1,000) × RPM</strong>. However, videos with mid-roll ads enabled earn significantly more because YouTube can serve multiple ads per viewer, effectively increasing the ad impressions per view.</p>
+
+        <h2>Video Length &amp; Revenue — The Data</h2>
+        <table>
+          <thead>
+            <tr><th>Video Length</th><th>Ad Placement Options</th><th>Avg Ad Slots</th><th>Revenue vs 3-min Video</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Under 3 minutes</td><td>Pre-roll only</td><td>1</td><td>Baseline</td></tr>
+            <tr><td>3–7 minutes</td><td>Pre-roll + end card</td><td>1–2</td><td>+10–20%</td></tr>
+            <tr><td>8–14 minutes</td><td>Pre-roll + 1–2 mid-rolls</td><td>2–3</td><td>+35–50%</td></tr>
+            <tr><td>15–29 minutes</td><td>Pre-roll + 3–5 mid-rolls</td><td>4–6</td><td>+55–80%</td></tr>
+            <tr><td>30+ minutes</td><td>Pre-roll + 6+ mid-rolls</td><td>7+</td><td>+80–120%</td></tr>
+          </tbody>
+        </table>
+
+        <h2>How Many Ads Should You Put in a Video?</h2>
+        <p>More ads generally mean more revenue, but too many ads can hurt audience retention and long-term channel growth. Finding the right balance is important:</p>
+        <ul>
+          <li><strong>For 8–12 minute videos:</strong> 1–2 mid-rolls is optimal. Place the first mid-roll at the midpoint (4–5 min in) and a second near the end if the content supports it naturally.</li>
+          <li><strong>For 15–20 minute videos:</strong> 3–4 mid-rolls works well. Space them every 5–6 minutes and always place them at natural pauses or transitions in the content.</li>
+          <li><strong>Avoid ad placement at cliffhangers:</strong> Placing ads right before a key reveal or answer causes viewer drop-off and hurts retention metrics, which affects future video recommendations.</li>
+          <li><strong>Enable automatic mid-roll placement:</strong> YouTube's automatic ad placement algorithm can outperform manual placement for viewer retention, as it identifies natural breaks in your content.</li>
+          <li><strong>Non-skippable vs skippable:</strong> Non-skippable ads earn more per impression but can increase viewer drop-off if overused. Consider enabling both types and letting YouTube optimize for revenue.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-calculators">
+    <div class="container">
+      <h2>More YouTube Earnings Tools</h2>
+      <p class="section-sub">Free calculators for every aspect of YouTube monetization.</p>
+      <div class="article-grid">
+        <a href="/" class="article-card">
+          <div class="tag">Calculator</div>
+          <div class="title">YouTube Money Calculator</div>
+          <div class="desc">Full earnings estimator with views, RPM, and country weighting.</div>
+        </a>
+        <a href="/youtube-cpm-calculator.html" class="article-card">
+          <div class="tag">Calculator</div>
+          <div class="title">YouTube CPM Calculator</div>
+          <div class="desc">Convert CPM to RPM and estimate monthly ad revenue instantly.</div>
+        </a>
+        <a href="/youtube-channel-earnings-calculator.html" class="article-card">
+          <div class="tag">Calculator</div>
+          <div class="title">Channel Earnings Calculator</div>
+          <div class="desc">Estimate monthly and yearly earnings by subscriber count and upload pace.</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo footer-logo" aria-label="YouTube Money Calculator">
+          <span class="logo-icon" aria-hidden="true">▶$</span>
+          <span class="logo-text">YT Money Calculator</span>
+        </a>
+        <p>Free YouTube earnings estimator for creators. Not affiliated with YouTube or Google.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/">YouTube Money Calculator</a></li>
+          <li><a href="/youtube-cpm-calculator.html">CPM Calculator</a></li>
+          <li><a href="/youtube-shorts-money-calculator.html">Shorts Calculator</a></li>
+          <li><a href="/youtube-niche-rpm-calculator.html">Niche RPM Calculator</a></li>
+          <li><a href="/youtube-earnings-per-video.html">Earnings Per Video</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="/youtube-rpm-guide.html">RPM Guide</a></li>
+          <li><a href="/youtube-rpm-by-country.html">RPM by Country</a></li>
+          <li><a href="/how-much-youtube-pays-per-view.html">How Much YouTube Pays</a></li>
+          <li><a href="/youtube-ad-revenue-by-niche.html">Revenue by Niche</a></li>
+          <li><a href="/blog/">All Articles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 YouTube Money Calculator. For estimation purposes only. Not affiliated with YouTube or Google. Actual earnings vary.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function calc() {
+  const views = parseFloat(document.getElementById('vid-views').value) || 0;
+  const rpm = parseFloat(document.getElementById('vid-rpm').value) || 3;
+  const mins = parseFloat(document.getElementById('vid-length').value) || 5;
+  const midroll = document.getElementById('vid-midroll').checked;
+  let multiplier = 1;
+  if (mins >= 15 && midroll) multiplier = 1.55;
+  else if (mins >= 8 && midroll) multiplier = 1.35;
+  const base = (views / 1000) * rpm * multiplier;
+  document.getElementById('r-video').textContent = '$' + base.toFixed(2);
+  document.getElementById('r-1k').textContent = '$' + (rpm * multiplier).toFixed(2) + ' per 1K';
+  document.getElementById('r-ads').textContent = midroll && mins >= 8 ? '+' + Math.round((multiplier-1)*100) + '% from mid-rolls' : 'Enable mid-rolls for +35%';
+}
+['vid-views','vid-rpm','vid-length'].forEach(id => document.getElementById(id).addEventListener('input', calc));
+document.getElementById('vid-midroll').addEventListener('change', calc);
+calc();
+</script>
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  if (toggle && mobileNav) {
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      mobileNav.setAttribute('aria-hidden', String(open));
+      mobileNav.classList.toggle('open', !open);
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        mobileNav.classList.remove('open');
+      });
+    });
+  }
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</body>
+</html>
