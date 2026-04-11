@@ -54,6 +54,7 @@
   </script>
 </head>
 <body>
+<div class="red-top-bar"></div>
 
   <header class="site-header">
     <div class="container">
@@ -65,12 +66,23 @@
         <nav class="main-nav" aria-label="Main navigation">
           <a href="/">Calculator</a>
           <a href="/youtube-rpm-guide.html">RPM Guide</a>
-          <a href="/#shorts-vs-longform">Shorts vs Long-form</a>
-          <a href="/#faq">FAQ</a>
+          <a href="/youtube-rpm-by-country.html">By Country</a>
+          <a href="/youtube-shorts-money-calculator.html">Shorts</a>
+          <a href="/blog/">Blog</a>
         </nav>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <a href="/" class="mobile-nav-link">Calculator</a>
+    <a href="/youtube-rpm-guide.html" class="mobile-nav-link">RPM Guide</a>
+    <a href="/youtube-rpm-by-country.html" class="mobile-nav-link">By Country</a>
+    <a href="/youtube-shorts-money-calculator.html" class="mobile-nav-link">Shorts</a>
+    <a href="/blog/" class="mobile-nav-link">Blog</a>
+  </div>
 
   <main>
 
@@ -78,6 +90,7 @@
       <div class="container">
         <div class="hero-badge">Per Million Views Guide</div>
         <h1>YouTube Money Calculator Per Million Views</h1>
+        <div class="accent-line"></div>
         <p class="hero-tagline">How much does YouTube actually pay for 1 million views?</p>
         <p class="hero-desc">The range is enormous — from $500 to $20,000+ for the same 1 million views, depending on your niche and audience. This guide breaks down exactly what affects your earnings at scale, with a calculator to estimate your specific case.</p>
         <div class="hero-nav">
@@ -85,6 +98,18 @@
         </div>
       </div>
     </section>
+
+    <!-- ===== ADSENSE SLOT 1 ===== -->
+    <div class="ad-slot-wrap">
+      <div class="container">
+        <div class="ad-slot">
+          <ins class="adsbygoogle" style="display:block"
+               data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+               data-ad-slot="XXXXXXXXXX"
+               data-ad-format="auto" data-full-width-responsive="true"></ins>
+        </div>
+      </div>
+    </div>
 
     <section class="content-section">
       <div class="container">
@@ -145,6 +170,18 @@
       </div>
     </section>
 
+    <!-- ===== ADSENSE SLOT 2 ===== -->
+    <div class="ad-slot-wrap">
+      <div class="container">
+        <div class="ad-slot">
+          <ins class="adsbygoogle"
+               data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+               data-ad-slot="XXXXXXXXXX"
+               data-ad-format="rectangle" style="display:inline-block;width:300px;height:250px"></ins>
+        </div>
+      </div>
+    </div>
+
     <section class="content-section content-section--alt" id="faq">
       <div class="container">
         <h2>Frequently Asked Questions</h2>
@@ -195,25 +232,61 @@
       </div>
     </section>
 
+    <!-- ===== RELATED CALCULATORS ===== -->
+    <section class="related-calculators">
+      <div class="container">
+        <h2>More YouTube Earnings Tools</h2>
+        <p class="section-sub">Free calculators and guides for every aspect of YouTube monetization.</p>
+        <div class="article-grid">
+          <a href="/" class="article-card">
+            <div class="tag">Calculator</div>
+            <div class="title">YouTube Money Calculator</div>
+            <div class="desc">Estimate monthly earnings by views, RPM, niche and country.</div>
+          </a>
+          <a href="/youtube-income-by-subscribers.html" class="article-card">
+            <div class="tag">Guide</div>
+            <div class="title">Income by Subscribers</div>
+            <div class="desc">See typical YouTube earnings at every subscriber milestone.</div>
+          </a>
+          <a href="/youtube-earnings-milestones.html" class="article-card">
+            <div class="tag">Guide</div>
+            <div class="title">Earnings Milestones</div>
+            <div class="desc">See what YouTube creators earn at 10K, 100K, 1M and 10M views.</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" aria-label="Site footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="/" class="logo footer-logo">
-            <span class="logo-icon">▶$</span>
+          <a href="/" class="logo footer-logo" aria-label="YouTube Money Calculator">
+            <span class="logo-icon" aria-hidden="true">▶$</span>
             <span class="logo-text">YT Money Calculator</span>
           </a>
-          <p>Free YouTube earnings estimator. Not affiliated with YouTube or Google.</p>
+          <p>Free YouTube earnings estimator for creators. Not affiliated with YouTube or Google.</p>
         </div>
         <div class="footer-col">
           <h4>Tools</h4>
           <ul>
             <li><a href="/">YouTube Money Calculator</a></li>
+            <li><a href="/youtube-cpm-calculator.html">CPM Calculator</a></li>
             <li><a href="/youtube-shorts-money-calculator.html">Shorts Calculator</a></li>
+            <li><a href="/youtube-niche-rpm-calculator.html">Niche RPM Calculator</a></li>
+            <li><a href="/youtube-earnings-per-video.html">Earnings Per Video</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Guides</h4>
+          <ul>
             <li><a href="/youtube-rpm-guide.html">RPM Guide</a></li>
             <li><a href="/youtube-rpm-by-country.html">RPM by Country</a></li>
+            <li><a href="/how-much-youtube-pays-per-view.html">How Much YouTube Pays</a></li>
+            <li><a href="/youtube-ad-revenue-by-niche.html">Revenue by Niche</a></li>
+            <li><a href="/blog/">All Articles</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -221,12 +294,13 @@
           <ul>
             <li><a href="/about.html">About</a></li>
             <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/contact.html">Contact</a></li>
             <li><a href="/disclaimer.html">Disclaimer</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 YouTube Money Calculator. For estimation purposes only. Not affiliated with YouTube or Google.</p>
+        <p>&copy; 2026 YouTube Money Calculator. For estimation purposes only. Not affiliated with YouTube or Google. Actual earnings vary.</p>
       </div>
     </div>
   </footer>
@@ -250,5 +324,26 @@
       });
     });
   </script>
+  <script>
+  const toggle = document.querySelector('.nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  if (toggle && mobileNav) {
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      mobileNav.setAttribute('aria-hidden', String(open));
+      mobileNav.classList.toggle('open', !open);
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        mobileNav.classList.remove('open');
+      });
+    });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </body>
 </html>
