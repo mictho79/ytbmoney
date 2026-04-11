@@ -36,6 +36,8 @@
 </head>
 <body>
 
+<div class="red-top-bar"></div>
+
   <header class="site-header">
     <div class="container">
       <div class="header-inner">
@@ -44,14 +46,26 @@
           <span class="logo-text">YT Money Calculator</span>
         </a>
         <nav class="main-nav" aria-label="Navegación principal">
-          <a href="/">Calculadora</a>
+          <a href="/es/">Calculadora</a>
           <a href="/es/youtube-rpm-guide.html">Guía RPM</a>
-          <a href="/#shorts-vs-longform">Shorts vs Video largo</a>
-          <a href="/#faq">FAQ</a>
+          <a href="/es/youtube-rpm-by-country.html">Por País</a>
+          <a href="/es/youtube-shorts-money-calculator.html">Shorts</a>
+          <a href="/es/blog/">Blog</a>
         </nav>
+        <button class="nav-toggle" aria-label="Abrir navegación" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
+
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <a href="/es/" class="mobile-nav-link">Calculadora</a>
+  <a href="/es/youtube-rpm-guide.html" class="mobile-nav-link">Guía RPM</a>
+  <a href="/es/youtube-rpm-by-country.html" class="mobile-nav-link">Por País</a>
+  <a href="/es/youtube-shorts-money-calculator.html" class="mobile-nav-link">Shorts</a>
+  <a href="/es/blog/" class="mobile-nav-link">Blog</a>
+</div>
 
   <main>
 
@@ -59,6 +73,7 @@
       <div class="container">
         <div class="hero-badge">📱 Calculadora de Shorts</div>
         <h1>Calculadora de Ganancias de YouTube Shorts</h1>
+        <div class="accent-line"></div>
         <p class="hero-tagline">Estima cuánto paga YouTube por tus visualizaciones de Shorts.</p>
         <p class="hero-desc">Los YouTube Shorts ganan significativamente menos por vista que los videos largos. Usa esta calculadora de ganancias de YouTube Shorts para estimar los ingresos con cualquier número de vistas y entender cómo se compara la monetización de Shorts con la de los videos normales.</p>
         <div class="hero-nav">
@@ -67,6 +82,17 @@
         </div>
       </div>
     </section>
+
+<div class="ad-slot-wrap">
+  <div class="container">
+    <div class="ad-slot">
+      <ins class="adsbygoogle" style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="XXXXXXXXXX"
+           data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+  </div>
+</div>
 
     <!-- CALCULADORA RÁPIDA DE SHORTS -->
     <section class="calculator-section" id="shorts-calc">
@@ -151,6 +177,17 @@
       </div>
     </section>
 
+<div class="ad-slot-wrap">
+  <div class="container">
+    <div class="ad-slot">
+      <ins class="adsbygoogle"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="XXXXXXXXXX"
+           data-ad-format="rectangle" style="display:inline-block;width:300px;height:250px"></ins>
+    </div>
+  </div>
+</div>
+
     <!-- CÓMO FUNCIONA LA MONETIZACIÓN DE SHORTS -->
     <section class="content-section content-section--alt">
       <div class="container">
@@ -218,39 +255,75 @@
 
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="/" class="logo footer-logo">
-            <span class="logo-icon">▶$</span>
-            <span class="logo-text">YT Money Calculator</span>
-          </a>
-          <p>Estimador gratuito de ganancias de YouTube. No está afiliado con YouTube ni Google.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Herramientas</h4>
-          <ul>
-            <li><a href="/">Calculadora de YouTube</a></li>
-            <li><a href="/es/youtube-rpm-guide.html">Guía RPM</a></li>
-            <li><a href="/es/youtube-rpm-by-country.html">RPM por País</a></li>
-            <li><a href="/es/how-much-youtube-pays-per-view.html">Cuánto Paga YouTube</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Empresa</h4>
-          <ul>
-            <li><a href="/about.html">Acerca de</a></li>
-            <li><a href="/privacy.html">Política de Privacidad</a></li>
-            <li><a href="/disclaimer.html">Aviso Legal</a></li>
-          </ul>
-        </div>
+<section class="related-calculators">
+  <div class="container">
+    <h2>Más herramientas de YouTube</h2>
+    <p class="section-sub">Calculadoras y guías gratuitas para la monetización de YouTube.</p>
+    <div class="article-grid">
+      <a href="/es/" class="article-card">
+        <div class="tag">Calculadora</div>
+        <div class="title">Calculadora de ingresos YouTube</div>
+        <div class="desc">Estima tus ingresos mensuales por vistas y RPM.</div>
+      </a>
+      <a href="/es/youtube-vs-tiktok-earnings.html" class="article-card">
+        <div class="tag">Comparación</div>
+        <div class="title">YouTube vs TikTok</div>
+        <div class="desc">Compara las ganancias entre YouTube y TikTok.</div>
+      </a>
+      <a href="/es/youtube-earnings-per-video.html" class="article-card">
+        <div class="tag">Calculadora</div>
+        <div class="title">Ingresos por Vídeo</div>
+        <div class="desc">Calcula las ganancias estimadas por vídeo publicado.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+  <footer class="site-footer" aria-label="Pie de página">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/es/" class="logo footer-logo" aria-label="Calculadora YouTube">
+          <span class="logo-icon" aria-hidden="true">&#9654;$</span>
+          <span class="logo-text">YT Money Calculator</span>
+        </a>
+        <p>Estimador gratuito de ingresos de YouTube para creadores. No afiliado a YouTube ni a Google.</p>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 YouTube Money Calculator. Solo para fines de estimación. No está afiliado con YouTube ni Google.</p>
+      <div class="footer-col">
+        <h4>Herramientas</h4>
+        <ul>
+          <li><a href="/es/">Calculadora YouTube</a></li>
+          <li><a href="/es/youtube-cpm-calculator.html">Calculadora CPM</a></li>
+          <li><a href="/es/youtube-shorts-money-calculator.html">Calculadora Shorts</a></li>
+          <li><a href="/es/youtube-niche-rpm-calculator.html">RPM por Nicho</a></li>
+          <li><a href="/es/youtube-earnings-per-video.html">Ingresos por Vídeo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guías</h4>
+        <ul>
+          <li><a href="/es/youtube-rpm-guide.html">Guía RPM</a></li>
+          <li><a href="/es/youtube-rpm-by-country.html">RPM por País</a></li>
+          <li><a href="/es/how-much-youtube-pays-per-view.html">Cuánto paga YouTube</a></li>
+          <li><a href="/es/youtube-ad-revenue-by-niche.html">Ingresos por Nicho</a></li>
+          <li><a href="/es/blog/">Todos los Artículos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="/es/about.html">Acerca de</a></li>
+          <li><a href="/es/privacy.html">Política de privacidad</a></li>
+          <li><a href="/es/contact.html">Contacto</a></li>
+          <li><a href="/es/disclaimer.html">Aviso legal</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <p>&copy; 2026 YouTube Money Calculator. Solo con fines estimativos. No afiliado a YouTube ni a Google.</p>
+    </div>
+  </div>
+</footer>
 
   <script>
     // Calculadora mini de la página de Shorts
@@ -304,5 +377,27 @@
     updateShSlider();
     calcShorts();
   </script>
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  if (toggle && mobileNav) {
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      mobileNav.setAttribute('aria-hidden', String(open));
+      mobileNav.classList.toggle('open', !open);
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        mobileNav.classList.remove('open');
+      });
+    });
+  }
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </body>
 </html>
