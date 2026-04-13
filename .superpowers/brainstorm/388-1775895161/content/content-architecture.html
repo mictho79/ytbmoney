@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Architecture</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f0f0f; color: #f0f0f0; padding: 24px; font-size: 13px; }
+
+h1 { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.sub { color: #888; font-size: 13px; margin-bottom: 28px; }
+
+.legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+.leg { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: #ccc; }
+.dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+
+.cluster { border-radius: 12px; overflow: hidden; border: 1px solid #2a2a2a; }
+.cluster-header { padding: 12px 16px; display: flex; align-items: center; gap: 10px; }
+.cluster-header h3 { font-size: 13px; font-weight: 700; color: #fff; }
+.cluster-header .count { margin-left: auto; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; background: rgba(255,255,255,0.1); color: #ccc; }
+
+.pillar-item { padding: 10px 16px; border-top: 1px solid #1e1e1e; background: #161616; display: flex; align-items: flex-start; gap: 8px; }
+.pillar-item .badge { font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; flex-shrink: 0; margin-top: 1px; letter-spacing: .04em; }
+.pillar-item .info { flex: 1; }
+.pillar-item .name { font-size: 12px; font-weight: 600; color: #e5e7eb; line-height: 1.4; }
+.pillar-item .url { font-size: 10px; color: #555; margin-top: 2px; font-family: monospace; }
+
+.sat-list { background: #111; }
+.sat-item { padding: 7px 16px 7px 32px; border-top: 1px solid #1a1a1a; display: flex; align-items: center; gap: 8px; }
+.sat-item::before { content: "↳"; color: #444; font-size: 11px; margin-left: -12px; }
+.sat-item .name { font-size: 11px; color: #9ca3af; line-height: 1.4; }
+
+/* Colors */
+.c-red { background: #FF0000; }
+.c-orange { background: #ea580c; }
+.c-blue { background: #3b82f6; }
+.c-green { background: #16a34a; }
+.c-purple { background: #8b5cf6; }
+.c-pink { background: #ec4899; }
+.c-yellow { background: #ca8a04; }
+
+.ch-red { background: rgba(255,0,0,0.12); border-bottom: 2px solid #FF0000; }
+.ch-orange { background: rgba(234,88,12,0.12); border-bottom: 2px solid #ea580c; }
+.ch-blue { background: rgba(59,130,246,0.12); border-bottom: 2px solid #3b82f6; }
+.ch-green { background: rgba(22,163,74,0.12); border-bottom: 2px solid #16a34a; }
+.ch-purple { background: rgba(139,92,246,0.12); border-bottom: 2px solid #8b5cf6; }
+.ch-pink { background: rgba(236,72,153,0.12); border-bottom: 2px solid #ec4899; }
+.ch-yellow { background: rgba(202,138,4,0.12); border-bottom: 2px solid #ca8a04; }
+
+.section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #555; margin: 32px 0 12px; }
+
+.stats-bar { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
+.stat { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 12px 18px; }
+.stat-num { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: -0.03em; }
+.stat-label { font-size: 11px; color: #666; margin-top: 2px; }
+.stat-num.red { color: #FF0000; }
+.stat-num.green { color: #4ade80; }
+.stat-num.blue { color: #60a5fa; }
+</style>
+</head>
+<body>
+
+<h1>Architecture des nouvelles pages</h1>
+<p class="sub">Plan agressif · 4 langues (EN/FR/ES/PT) · ~155 fichiers HTML nouveaux</p>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num red">12</div><div class="stat-label">Pages piliers nouvelles</div></div>
+  <div class="stat"><div class="stat-num green">48</div><div class="stat-label">Articles satellites</div></div>
+  <div class="stat"><div class="stat-num blue">6</div><div class="stat-label">Pages backlink bait</div></div>
+  <div class="stat"><div class="stat-num" style="color:#a78bfa">66</div><div class="stat-label">Pages EN total nouvelles</div></div>
+  <div class="stat"><div class="stat-num" style="color:#f59e0b">×4</div><div class="stat-label">langues = ~264 pages</div></div>
+</div>
+
+<div class="legend">
+  <div class="leg"><div class="dot c-red"></div> Pilier (outil/calculateur)</div>
+  <div class="leg"><div class="dot c-blue"></div> Article satellite</div>
+  <div class="leg"><div class="dot c-green"></div> Backlink bait</div>
+  <div class="leg"><div class="dot c-yellow"></div> Existant (mis à jour)</div>
+</div>
+
+<!-- EXISTING PILLARS -->
+<div class="section-title">⚡ Piliers existants — mis à jour (design + AdSense + maillage)</div>
+<div class="grid" style="margin-bottom: 24px;">
+  <div class="cluster">
+    <div class="cluster-header ch-yellow">
+      <h3>Pages existantes</h3>
+      <span class="count">6 pages</span>
+    </div>
+    <div class="pillar-item"><span class="badge c-yellow">existant</span><div class="info"><div class="name">YouTube Money Calculator (index)</div><div class="url">/</div></div></div>
+    <div class="pillar-item"><span class="badge c-yellow">existant</span><div class="info"><div class="name">YouTube RPM Guide</div><div class="url">/youtube-rpm-guide.html</div></div></div>
+    <div class="pillar-item"><span class="badge c-yellow">existant</span><div class="info"><div class="name">YouTube Shorts Money Calculator</div><div class="url">/youtube-shorts-money-calculator.html</div></div></div>
+    <div class="pillar-item"><span class="badge c-yellow">existant</span><div class="info"><div class="name">How Much YouTube Pays Per View</div><div class="url">/how-much-youtube-pays-per-view.html</div></div></div>
+    <div class="pillar-item"><span class="badge c-yellow">existant</span><div class="info"><div class="name">YouTube RPM by Country</div><div class="url">/youtube-rpm-by-country.html</div></div></div>
+    <div class="pillar-item"><span class="badge c-yellow">existant</span><div class="info"><div class="name">YouTube Calculator per Million Views</div><div class="url">/youtube-money-calculator-per-million-views.html</div></div></div>
+  </div>
+</div>
+
+<!-- NEW PILLARS + SATELLITES -->
+<div class="section-title">🆕 Nouveaux piliers + satellites</div>
+<div class="grid">
+
+  <!-- CPM -->
+  <div class="cluster">
+    <div class="cluster-header ch-red">
+      <h3>CPM Calculator</h3>
+      <span class="count">1 pilier + 5 sats</span>
+    </div>
+    <div class="pillar-item"><span class="badge c-red">pilier</span><div class="info"><div class="name">YouTube CPM Calculator</div><div class="url">/youtube-cpm-calculator.html</div></div></div>
+    <div class="sat-list">
+      <div class="sat-item"><div class="name">What is YouTube CPM?</div></div>
+      <div class="sat-item"><div class="name">YouTube CPM by Niche 2025</div></div>
+      <div class="sat-item"><div class="name">How to Increase Your YouTube CPM</div></div>
+      <div class="sat-item"><div class="name">CPM vs RPM — What's the Difference?</div></div>
+      <div class="sat-item"><div class="name">YouTube CPM vs Google AdSense CPM</div></div>
+    </div>
+  </div>
+
+  <!-- Channel Earnings -->
+  <div class="cluster">
+    <div class="cluster-header ch-orange">
+      <h3>Channel Earnings by Subscribers</h3>
+      <span class="count">1 pilier + 5 sats</span>
+    </div>
+    <div class="pillar-item"><span class="badge c-orange">pilier</span><div class="info"><div class="name">YouTube Channel Earnings Calculator</div><div class="url">/youtube-channel-earnings-calculator.html</div></div></div>
+    <div class="sat-list">
+      <div class="sat-item"><div class="name">How Much Do YouTubers With 100K Subs Make?</div></div>
+      <div class="sat-item"><div class="name">YouTube Earnings at 1M Subscribers</div></div>
+      <div class="sat-item"><div class="name">How Long to Make $1,000 on YouTube?</div></div>
+      <div class="sat-item"><div class="name">YouTube Income for Small Channels (1K–10K)</div></div>
+      <div class="sat-item"><div class="name">YouTube Passive Income: Full Guide</div></div>
+    </div>
+  </div>
+
+  <!-- Views to Money -->
+  <div class="cluster">
+    <div class="cluster-header ch-blue">
+      <h3>Views to Money</h3>
+      <span class="count">1 pilier + 5 sats</span>
+    </div>
+    <div class="pillar-item"><span class="badge c-blue">pilier</span><div class="info"><div class="name">YouTube Views to Money Converter</div><div class="url">/youtube-views-to-money.html</div></div></div>
+    <div class="sat-list">
+      <div class="sat-item"><div class="name">1 Million YouTube Views — How Much Is It Worth?</div></div>
+      <div class="sat-item"><div class="name">YouTube Earnings for Gaming Channels</div></div>
+      <div class="sat-item"><div class="name">How Many Views to Make a Living on YouTube?</div></div>
+      <div class="sat-item"><div class="name">YouTube Viral Video Earnings Explained</div></div>
+      <div class="sat-item"><div class="name">10K, 100K, 1M Views — Earnings Comparison</div></div>
+    </div>
+  </div>
+
+  <!-- Niche RPM -->
+  <div class="cluster">
+    <div class="cluster-header ch-green">
+      <h3>Niche RPM Calculator</h3>
+      <span class="count">1 pilier + 5 sats</span>
+    </div>
+    <div class="pillar-item"><span class="badge c-green">pilier</span><div class="info"><div class="name">YouTube Niche RPM Calculator</div><div class="url">/youtube-niche-rpm-calculator.html</div></div></div>
+    <div class="sat-list">
+      <div class="sat-item"><div class="name">Gaming YouTube RPM — Is It Worth It?</div></div>
+      <div class="sat-item"><div class="name">Finance YouTube RPM (The Highest Niche)</div></div>
+      <div class="sat-item"><div class="name">Tech YouTube RPM in 2025</div></div>
+      <div class="sat-item"><div class="name">Beauty & Lifestyle YouTube RPM</div></div>
+      <div class="sat-item"><div class="name">Best YouTube Niches for High RPM</div></div>
+    </div>
+  </div>
+
+  <!-- Earnings Milestones -->
+  <div class="cluster">
+    <div class="cluster-header ch-purple">
+      <h3>Earnings Milestones</h3>
+      <span class="count">1 pilier + 5 sats</span>
+    </div>
+    <div class="pillar-item"><span class="badge c-purple">pilier</span><div class="info"><div class="name">YouTube Earnings Milestones Calculator</div><div class="url">/youtube-earnings-milestones.html</div></div></div>
+    <div class="sat-list">
+      <div class="sat-item"><div class="name">YouTube Partner Program Requirements 2025</div></div>
+      <div class="sat-item"><div class="name">First YouTube Paycheck — What to Expect</div></div>
+      <div class="sat-item"><div class="name">YouTube 1K, 10K, 100K Views — Earnings</div></div>
+      <div class="sat-item"><div class="name">How Fast Can You Monetize YouTube?</div></div>
+      <div class="sat-item"><div class="name">YouTube $100 Threshold — When Do You Get Paid?</div></div>
+    </div>
+  </div>
+
+  <!-- Monetization Calculator -->
+  <div class="cluster">
+    <div class="cluster-header ch-pink">
+      <h3>Monetization Calculator</h3>
+      <span class="count">1 pilier + 5 sats</span>
+    </div>
+    <div class="pillar-item"><span class="badge c-pink">pilier</span><div class="info"><div class="name">YouTube Monetization Requirements Calculator</div><div class="url">/youtube-monetization-calculator.html</div></div></div>
+    <div class="sat-list">
+      <div class="sat-item"><div class="name">YouTube Monetization — Complete Guide 2025</div></div>
+      <div class="sat-item"><div class="name">How to Enable YouTube Monetization</div></div>
+      <div class="sat-item"><div class="name">YouTube Watch Hours Calculator</div></div>
+      <div class="sat-item"><div class="name">YouTube Monetization Rules & Policies</div></div>
+      <div class="sat-item"><div class="name">How Long to Reach 4,000 Watch Hours?</div></div>
+    </div>
+  </div>
+
+  <!-- YouTube vs TikTok -->
+  <div class="cluster">
+    <div class="cluster-header ch-blue">
+      <h3>YouTube vs TikTok Earnings</h3>
+      <span class="count">1 pilier + 4 sats</span>
+    </div>
+    <div class="pillar-item"><span class="badge c-blue">pilier</span><div class="info"><div class="name">YouTube vs TikTok Earnings Comparison</div><div class="url">/youtube-vs-tiktok-earnings.html</div></div></div>
+    <div class="sat-list">
+      <div class="sat-item"><div class="name">YouTube vs TikTok — Which Pays More?</div></div>
+      <div class="sat-item"><div class="name">TikTok Creator Fund vs YouTube AdSense</div></div>
+      <div class="sat-item"><div class="name">Best Platform for New Creators in 2025</div></div>
+      <div class="sat-item"><div class="name">YouTube Shorts vs TikTok Earnings Per View</div></div>
+    </div>
+  </div>
+
+  <!-- Ad Revenue by Niche -->
+  <div class="cluster">
+    <div class="cluster-header ch-orange">
+      <h3>Ad Revenue by Niche</h3>
+      <span class="count">1 pilier + 4 sats</span>
+    </div>
+    <div class="pillar-item"><span class="badge c-orange">pilier</span><div class="info"><div class="name">YouTube Ad Revenue by Niche (Full Data)</div><div class="url">/youtube-ad-revenue-by-niche.html</div></div></div>
+    <div class="sat-list">
+      <div class="sat-item"><div class="name">Highest Paying YouTube Niches 2025</div></div>
+      <div class="sat-item"><div class="name">Kids Content YouTube RPM — COPPA Explained</div></div>
+      <div class="sat-item"><div class="name">Faceless YouTube Channel Earnings</div></div>
+      <div class="sat-item"><div class="name">YouTube Automation Channel Revenue</div></div>
+    </div>
+  </div>
+
+  <!-- Income by Subscribers -->
+  <div class="cluster">
+    <div class="cluster-header ch-green">
+      <h3>Income by Subscriber Count</h3>
+      <span class="count">1 pilier + 4 sats</span>
+    </div>
+    <div class="pillar-item"><span class="badge c-green">pilier</span><div class="info"><div class="name">YouTube Income by Subscriber Count</div><div class="url">/youtube-income-by-subscribers.html</div></div></div>
+    <div class="sat-list">
+      <div class="sat-item"><div class="name">What Does a 10K Sub YouTuber Earn?</div></div>
+      <div class="sat-item"><div class="name">How Much Does MrBeast Make? (Reverse Calc)</div></div>
+      <div class="sat-item"><div class="name">YouTube vs Patreon — Revenue Comparison</div></div>
+      <div class="sat-item"><div class="name">Subscriber Count Doesn't Pay — Views Do</div></div>
+    </div>
+  </div>
+
+  <!-- CPM by Country (deep dive) -->
+  <div class="cluster">
+    <div class="cluster-header ch-purple">
+      <h3>CPM by Country (deep dive)</h3>
+      <span class="count">1 pilier + 4 sats</span>
+    </div>
+    <div class="pillar-item"><span class="badge c-purple">pilier</span><div class="info"><div class="name">YouTube CPM by Country — Full 2025 Data</div><div class="url">/youtube-cpm-by-country.html</div></div></div>
+    <div class="sat-list">
+      <div class="sat-item"><div class="name">Why US Audience Pays More on YouTube</div></div>
+      <div class="sat-item"><div class="name">Highest CPM Countries for YouTube Creators</div></div>
+      <div class="sat-item"><div class="name">How to Target High-CPM Countries on YouTube</div></div>
+      <div class="sat-item"><div class="name">YouTube CPM India vs USA — Full Comparison</div></div>
+    </div>
+  </div>
+
+  <!-- Earnings Per Video -->
+  <div class="cluster">
+    <div class="cluster-header ch-red">
+      <h3>Earnings Per Video</h3>
+      <span class="count">1 pilier + 4 sats</span>
+    </div>
+    <div class="pillar-item"><span class="badge c-red">pilier</span><div class="info"><div class="name">YouTube Earnings Per Video Calculator</div><div class="url">/youtube-earnings-per-video.html</div></div></div>
+    <div class="sat-list">
+      <div class="sat-item"><div class="name">How Much Does a 10-Minute YouTube Video Earn?</div></div>
+      <div class="sat-item"><div class="name">YouTube Video Length and Revenue — The Link</div></div>
+      <div class="sat-item"><div class="name">How Many Ads Per Video Maximizes Revenue?</div></div>
+      <div class="sat-item"><div class="name">YouTube Average Video Earnings by Category</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- BACKLINK BAIT -->
+<div class="section-title">🧲 Backlink Bait — pages conçues pour être citées</div>
+<div class="grid">
+
+  <div class="cluster">
+    <div class="cluster-header ch-green">
+      <h3>6 pages à fort potentiel de liens</h3>
+      <span class="count">6 pages</span>
+    </div>
+    <div class="pillar-item"><span class="badge c-green">data</span><div class="info"><div class="name">YouTube RPM Data 2025 — Original Dataset</div><div class="url">/youtube-rpm-data-2025.html</div></div></div>
+    <div class="pillar-item"><span class="badge c-green">embed</span><div class="info"><div class="name">Free Embeddable YouTube Earnings Widget</div><div class="url">/youtube-earnings-widget.html</div></div></div>
+    <div class="pillar-item"><span class="badge c-green">glossary</span><div class="info"><div class="name">YouTube Monetization Glossary (CPM, RPM, CTR…)</div><div class="url">/youtube-glossary.html</div></div></div>
+    <div class="pillar-item"><span class="badge c-green">visual</span><div class="info"><div class="name">YouTube Niche RPM Comparison Chart 2025</div><div class="url">/youtube-niche-rpm-chart.html</div></div></div>
+    <div class="pillar-item"><span class="badge c-green">timeline</span><div class="info"><div class="name">YouTube Monetization Timeline — When to Expect $</div><div class="url">/youtube-monetization-timeline.html</div></div></div>
+    <div class="pillar-item"><span class="badge c-green">map</span><div class="info"><div class="name">YouTube Earnings by Country — Interactive Map</div><div class="url">/youtube-country-earnings-map.html</div></div></div>
+  </div>
+
+  <div class="cluster">
+    <div class="cluster-header ch-purple">
+      <h3>Résumé technique</h3>
+      <span class="count">totaux</span>
+    </div>
+    <div class="pillar-item"><span class="badge c-yellow">existant</span><div class="info"><div class="name">6 pages existantes → update design + AdSense + liens</div></div></div>
+    <div class="pillar-item"><span class="badge c-red">pilier</span><div class="info"><div class="name">11 nouveaux piliers avec calculateur/outil</div></div></div>
+    <div class="pillar-item"><span class="badge c-blue">satellite</span><div class="info"><div class="name">~48 articles satellites (4–5 par pilier)</div></div></div>
+    <div class="pillar-item"><span class="badge c-green">bait</span><div class="info"><div class="name">6 pages backlink bait</div></div></div>
+    <div class="pillar-item" style="background:#1a0000;border-left:3px solid #FF0000;"><span class="badge c-red">×4</span><div class="info"><div class="name" style="color:#fca5a5;">× 4 langues = ~260 fichiers HTML au total</div></div></div>
+  </div>
+
+</div>
+
+<div style="margin-top:24px;padding:16px;background:#1a1a1a;border-radius:8px;font-size:12px;color:#9ca3af;line-height:1.8;">
+  <strong style="color:#fff;">Maillage interne :</strong> Chaque satellite pointe vers son pilier · Les piliers se lient entre eux (ex: CPM ↔ RPM ↔ Niche) · Index → tous les piliers · Backlink bait → piliers pertinents
+</div>
+
+</body>
+</html>

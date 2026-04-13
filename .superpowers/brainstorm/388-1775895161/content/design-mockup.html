@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Mockup — Clean Elevated</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f0f0; color: #111; }
+
+  .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #888; padding: 6px 12px; background: #e5e7eb; border-radius: 4px; display: inline-block; margin-bottom: 16px; }
+
+  /* BROWSER CHROME */
+  .browser { max-width: 900px; margin: 20px auto; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.18); }
+  .browser-bar { background: #e8e8e8; padding: 10px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #ccc; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot.r { background: #ff5f57; }
+  .dot.y { background: #ffbd2e; }
+  .dot.g { background: #28ca41; }
+  .url-bar { flex: 1; background: #fff; border-radius: 6px; padding: 4px 12px; font-size: 12px; color: #666; margin-left: 8px; }
+
+  /* SITE CHROME */
+  .site { background: #fff; }
+
+  /* TOP RED BAR */
+  .red-bar { height: 4px; background: #FF0000; }
+
+  /* HEADER */
+  .site-header { background: #fff; padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e5e7eb; }
+  .logo { display: flex; align-items: center; gap: 10px; }
+  .logo-icon { background: #FF0000; color: #fff; width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 12px; letter-spacing: -1px; flex-shrink: 0; }
+  .logo-text { font-weight: 800; font-size: 15px; letter-spacing: -0.02em; }
+  .nav { display: flex; gap: 28px; }
+  .nav a { font-size: 14px; font-weight: 500; color: #6b7280; text-decoration: none; }
+  .nav a:hover { color: #111; }
+
+  /* HERO */
+  .hero { padding: 56px 32px 48px; background: #fff; border-bottom: 1px solid #e5e7eb; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: #fff5f5; color: #CC0000; border: 1px solid #fecaca; border-radius: 20px; padding: 4px 14px; font-size: 12px; font-weight: 600; margin-bottom: 20px; }
+  .hero h1 { font-size: 48px; font-weight: 900; letter-spacing: -0.04em; color: #0a0a0a; line-height: 1.08; margin-bottom: 8px; }
+  .hero h1 span { color: #FF0000; }
+  .accent-line { width: 48px; height: 5px; background: #FF0000; border-radius: 3px; margin: 16px 0 20px; }
+  .hero-desc { font-size: 17px; color: #4b5563; max-width: 560px; line-height: 1.6; margin-bottom: 28px; }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary { background: #FF0000; color: #fff; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 15px; border: none; cursor: pointer; box-shadow: 0 4px 14px rgba(255,0,0,0.3); }
+  .btn-ghost { background: #fff; color: #111; padding: 13px 24px; border-radius: 8px; font-weight: 600; font-size: 15px; border: 1.5px solid #d1d5db; cursor: pointer; }
+
+  /* STATS ROW */
+  .stats-row { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+  .stat { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 16px 20px; min-width: 140px; }
+  .stat-val { font-size: 22px; font-weight: 900; color: #0a0a0a; letter-spacing: -0.03em; }
+  .stat-val.green { color: #16a34a; }
+  .stat-label { font-size: 11px; color: #9ca3af; font-weight: 500; margin-top: 3px; }
+
+  /* ADSENSE SLOT */
+  .adsense-slot { background: #f9fafb; border: 1.5px dashed #d1d5db; border-radius: 8px; padding: 12px; text-align: center; font-size: 12px; color: #9ca3af; font-weight: 500; margin: 0 32px; }
+
+  /* CALCULATOR CARD */
+  .calc-section { padding: 36px 32px; background: #f9fafb; }
+  .calc-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .calc-card h2 { font-size: 22px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 4px; }
+  .calc-card p { font-size: 14px; color: #6b7280; margin-bottom: 24px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field label { font-size: 13px; font-weight: 600; color: #374151; display: block; margin-bottom: 6px; }
+  .field input { width: 100%; padding: 10px 14px; border: 1.5px solid #e5e7eb; border-radius: 8px; font-size: 15px; font-weight: 600; color: #111; outline: none; }
+  .field input:focus { border-color: #FF0000; }
+  .result-box { background: #fff5f5; border: 1.5px solid #fecaca; border-radius: 10px; padding: 20px 24px; margin-top: 20px; display: flex; gap: 32px; align-items: center; }
+  .result-main { font-size: 36px; font-weight: 900; color: #FF0000; letter-spacing: -0.04em; }
+  .result-sub { font-size: 13px; color: #6b7280; margin-top: 2px; }
+
+  /* SECTION DIVIDER LABEL */
+  .section-note { font-size: 11px; font-weight: 700; color: #9ca3af; text-align: center; padding: 8px; letter-spacing: .08em; text-transform: uppercase; }
+
+  /* ARTICLE CARD */
+  .articles { padding: 32px; background: #fff; }
+  .articles h2 { font-size: 20px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 20px; }
+  .article-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .article-card { border: 1px solid #e5e7eb; border-radius: 10px; padding: 16px; transition: box-shadow .15s; }
+  .article-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .article-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #FF0000; margin-bottom: 6px; }
+  .article-title { font-size: 14px; font-weight: 700; color: #111; line-height: 1.4; }
+  .article-desc { font-size: 12px; color: #6b7280; margin-top: 5px; line-height: 1.5; }
+
+  /* FOOTER */
+  .site-footer { background: #0a0a0a; color: #9ca3af; padding: 28px 32px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo { color: #fff; font-weight: 800; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div style="padding:20px 24px;background:#1a1a1a;color:#fff;font-family:sans-serif;font-size:13px;text-align:center;font-weight:600;">
+  👆 Mockup interactif — Clean Elevated · Fais défiler pour voir toutes les sections
+</div>
+
+<div class="browser">
+  <div class="browser-bar">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <div class="url-bar">ytbmoney.pages.dev</div>
+  </div>
+  <div class="site">
+
+    <!-- Red top bar -->
+    <div class="red-bar"></div>
+
+    <!-- Header -->
+    <div class="site-header">
+      <div class="logo">
+        <div class="logo-icon">▶$</div>
+        <div class="logo-text">YT Money Calculator</div>
+      </div>
+      <div class="nav">
+        <a href="#">Calculator</a>
+        <a href="#">CPM Guide</a>
+        <a href="#">By Country</a>
+        <a href="#">Shorts</a>
+        <a href="#">Blog</a>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-badge">🆓 Free Tool · No sign-up</div>
+      <h1>YouTube <span>Money</span><br>Calculator</h1>
+      <div class="accent-line"></div>
+      <p class="hero-desc">Estimate your YouTube earnings by views, RPM, niche and country. The most complete free tool for creators.</p>
+      <div class="btn-row">
+        <button class="btn-primary">Calculate My Earnings ↗</button>
+        <button class="btn-ghost">How it works</button>
+      </div>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-val">$1–$10</div>
+          <div class="stat-label">Avg RPM per 1K views</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val green">$3K–$10K</div>
+          <div class="stat-label">Per 1M long-form views</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">$30–$120</div>
+          <div class="stat-label">Per 1M Shorts views</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">318</div>
+          <div class="stat-label">Keywords ranked</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AdSense slot -->
+    <div style="padding:12px 32px;background:#fff;border-bottom:1px solid #e5e7eb;">
+      <div class="adsense-slot">[ AdSense — Responsive Banner 728×90 ]</div>
+    </div>
+
+    <!-- Calculator -->
+    <div class="calc-section">
+      <div class="calc-card">
+        <h2>YouTube Earnings Calculator</h2>
+        <p>Enter your monthly views and RPM to get an instant estimate.</p>
+        <div class="form-row">
+          <div class="field"><label>Monthly Views</label><input value="100,000"></div>
+          <div class="field"><label>RPM ($/1K views)</label><input value="$3.00"></div>
+          <div class="field"><label>Content Type</label><input value="Long-form video"></div>
+          <div class="field"><label>Main Audience Country</label><input value="United States"></div>
+        </div>
+        <div class="result-box">
+          <div>
+            <div class="result-main">$300</div>
+            <div class="result-sub">Estimated monthly earnings</div>
+          </div>
+          <div style="border-left:1px solid #fecaca;padding-left:32px;">
+            <div style="font-size:18px;font-weight:800;color:#111;">$3,600</div>
+            <div class="result-sub">Per year</div>
+          </div>
+          <div style="border-left:1px solid #fecaca;padding-left:32px;">
+            <div style="font-size:18px;font-weight:800;color:#111;">$10</div>
+            <div class="result-sub">Per day</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AdSense mid-page -->
+    <div style="padding:8px 32px 16px;background:#f9fafb;">
+      <div class="adsense-slot">[ AdSense — 300×250 Rectangle ]</div>
+    </div>
+
+    <!-- Article cluster -->
+    <div class="articles">
+      <h2>More YouTube Earnings Guides</h2>
+      <div class="article-grid">
+        <div class="article-card">
+          <div class="article-tag">CPM</div>
+          <div class="article-title">YouTube CPM by Niche in 2025</div>
+          <div class="article-desc">Finance pays $12–$40 CPM. Gaming sits at $2–$5. Here's the full breakdown.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-tag">Shorts</div>
+          <div class="article-title">YouTube Shorts vs Long-form: Earnings Deep Dive</div>
+          <div class="article-desc">Shorts pay less per view but volume can make up for it.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-tag">Country</div>
+          <div class="article-title">RPM by Country: Full 2025 Data</div>
+          <div class="article-desc">US audience earns 8× more than Indian audience. Full table inside.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="site-footer">
+      <div class="footer-logo">▶$ YT Money Calculator</div>
+      <div>© 2025 · Privacy · Contact · Disclaimer</div>
+    </div>
+
+  </div>
+</div>
+
+<div style="padding:20px;max-width:900px;margin:0 auto;font-family:sans-serif;">
+  <p style="font-size:13px;color:#888;text-align:center;">Ce mockup montre : barre rouge top, typographie 900 weight, accent-line rouge, stat cards, slots AdSense positionnés, article grid topic clusters, footer sombre.</p>
+</div>
+
+</body>
+</html>
