@@ -1,5 +1,5 @@
 # robots.txt — YouTube Money Calculator
-# https://ytbmoney.pages.dev/
+# https://ytbearnings.com/
 
 # Allow all major crawlers
 User-agent: *
@@ -24,4 +24,4 @@ User-agent: DotBot
 Crawl-delay: 10
 
 # Sitemap location
-Sitemap: https://ytbmoney.pages.dev/sitemap.xml
+Sitemap: https://ytbearnings.com/sitemap.xml
