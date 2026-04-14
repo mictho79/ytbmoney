@@ -126,6 +126,11 @@ const CLUSTERS = [
       'formula-1-motorsport-youtube-rpm-earnings',
       'mma-ufc-youtube-rpm-earnings',
       'real-estate-investing-youtube-rpm-earnings',
+      'luxury-lifestyle-watches-youtube-rpm-earnings',
+      'pets-dog-training-youtube-rpm-earnings',
+      'crypto-bitcoin-youtube-rpm-earnings',
+      'sports-betting-dfs-youtube-rpm-earnings',
+      'supercars-exotic-cars-youtube-rpm-earnings',
     ],
   },
   {
