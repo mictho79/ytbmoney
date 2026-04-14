@@ -120,6 +120,12 @@ const CLUSTERS = [
       'cricket-youtube-rpm-earnings',
       'cooking-food-youtube-rpm-earnings',
       'diy-home-improvement-youtube-rpm-earnings',
+      'fitness-workout-youtube-rpm-earnings',
+      'travel-vlog-youtube-rpm-earnings',
+      'golf-youtube-rpm-earnings',
+      'formula-1-motorsport-youtube-rpm-earnings',
+      'mma-ufc-youtube-rpm-earnings',
+      'real-estate-investing-youtube-rpm-earnings',
     ],
   },
   {
@@ -174,6 +180,22 @@ function extractSlug(filePath) {
   return path.basename(filePath, '.html');
 }
 
+// Cluster adjacency — each cluster points to 1–2 related clusters whose pillars
+// are suggested as cross-topic "deep dive" links.
+const CLUSTER_ADJACENCY = {
+  rpm:          ['cpm', 'niches'],
+  cpm:          ['rpm', 'earnings'],
+  earnings:     ['monetization', 'rpm'],
+  monetization: ['earnings', 'rpm'],
+  niches:       ['rpm', 'earnings'],
+  comparisons:  ['earnings', 'monetization'],
+};
+
+function pillarSlugForId(id) {
+  const c = CLUSTERS.find(c => c.id === id);
+  return c ? c.pillar : null;
+}
+
 function buildRelatedList(slug, lang, titleMap) {
   const entry = slugToCluster.get(slug);
   if (!entry) return null;
@@ -181,25 +203,40 @@ function buildRelatedList(slug, lang, titleMap) {
   const { cluster, role } = entry;
   const prefix = getLangPrefix(lang);
 
-  // Candidate slugs: for a satellite → [pillar, ...other satellites]
-  //                  for a pillar    → [...all satellites]
-  let candidates;
+  // Within-cluster candidates
+  let withinCluster;
   if (role === 'satellite') {
     const others = cluster.satellites.filter(s => s !== slug);
-    candidates = [cluster.pillar, ...others];
+    withinCluster = [cluster.pillar, ...others];
   } else {
-    candidates = [...cluster.satellites];
+    withinCluster = [...cluster.satellites];
   }
 
-  // Keep only slugs that have a translated file (exist in titleMap for this lang)
+  // Cross-cluster candidates: pillars of adjacent clusters
+  const adjacentIds = CLUSTER_ADJACENCY[cluster.id] || [];
+  const crossCluster = adjacentIds
+    .map(pillarSlugForId)
+    .filter(Boolean);
+
   const langKey = (s) => `${lang}:${s}`;
-  const links = candidates
+
+  // Reserve ~2 slots for cross-cluster links (when available), fill rest within cluster
+  const crossAvailable = crossCluster.filter(s => titleMap.has(langKey(s)));
+  const crossSlots     = Math.min(crossAvailable.length, 2);
+  const withinSlots    = MAX_LINKS - crossSlots;
+
+  const withinLinks = withinCluster
     .filter(s => titleMap.has(langKey(s)))
-    .slice(0, MAX_LINKS)
-    .map(s => ({
-      href: `${prefix}/${s}.html`,
-      title: titleMap.get(langKey(s)),
-    }));
+    .slice(0, withinSlots);
+
+  const crossLinks = crossAvailable.slice(0, crossSlots);
+
+  const combined = [...withinLinks, ...crossLinks];
+
+  const links = combined.map(s => ({
+    href:  `${prefix}/${s}.html`,
+    title: titleMap.get(langKey(s)),
+  }));
 
   return links.length >= 2 ? links : null;
 }
@@ -263,17 +300,22 @@ function processFile(filePath, titleMap) {
   // Only process pages that belong to a cluster
   if (!slugToCluster.has(slug)) return false;
 
-  const html = fs.readFileSync(filePath, 'utf8');
-
-  // Idempotent: skip if already injected
-  if (html.includes('id="related-articles"')) return false;
+  let html = fs.readFileSync(filePath, 'utf8');
 
   const lang = getLang(filePath);
   const links = buildRelatedList(slug, lang, titleMap);
   if (!links) return false;
 
   const section = buildSection(links, lang);
-  const newHtml = html.replace('</main>', `${section}</main>`);
+
+  // If a Related Articles block exists, replace it (for cross-cluster upgrade re-runs)
+  const existingRe = /\n?\s*<section class="related-calculators" id="related-articles">[\s\S]*?<\/section>\n?/;
+  let newHtml;
+  if (existingRe.test(html)) {
+    newHtml = html.replace(existingRe, section);
+  } else {
+    newHtml = html.replace('</main>', `${section}</main>`);
+  }
 
   if (newHtml === html) return false; // </main> not found
 
