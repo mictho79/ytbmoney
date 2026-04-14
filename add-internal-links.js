@@ -114,6 +114,12 @@ const CLUSTERS = [
       'youtube-passive-income-guide',
       'best-platform-new-creators-2025',
       'how-much-does-mrbeast-make',
+      'football-soccer-youtube-rpm-earnings',
+      'basketball-youtube-rpm-earnings',
+      'nfl-american-football-youtube-rpm-earnings',
+      'cricket-youtube-rpm-earnings',
+      'cooking-food-youtube-rpm-earnings',
+      'diy-home-improvement-youtube-rpm-earnings',
     ],
   },
   {
