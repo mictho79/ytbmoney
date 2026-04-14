@@ -1,6 +1,5 @@
 /**
- * Append translated niche URLs (es/fr/pt × 12) to sitemap.xml
- * Run once — idempotent via duplicate-check on loc.
+ * Append translated niche URLs to sitemap.xml. Idempotent.
  */
 const fs   = require('fs');
 const path = require('path');
@@ -23,17 +22,22 @@ const SLUGS = [
   'formula-1-motorsport-youtube-rpm-earnings',
   'mma-ufc-youtube-rpm-earnings',
   'real-estate-investing-youtube-rpm-earnings',
+  'luxury-lifestyle-watches-youtube-rpm-earnings',
+  'pets-dog-training-youtube-rpm-earnings',
+  'crypto-bitcoin-youtube-rpm-earnings',
+  'sports-betting-dfs-youtube-rpm-earnings',
+  'supercars-exotic-cars-youtube-rpm-earnings',
 ];
 const LANGS = ['es', 'fr', 'pt'];
 
 let xml = fs.readFileSync(SITEMAP, 'utf8');
 let added = 0;
-
 const entries = [];
+
 for (const lang of LANGS) {
   for (const slug of SLUGS) {
     const loc = `${DOMAIN}/${lang}/${slug}.html`;
-    if (xml.includes(loc)) continue; // already present
+    if (xml.includes(loc)) continue;
     entries.push(`  <url>
     <loc>${loc}</loc>
     <lastmod>${TODAY}</lastmod>
