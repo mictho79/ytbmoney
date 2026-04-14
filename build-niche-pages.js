@@ -877,15 +877,15 @@ function renderArticleJsonLd(n) {
     '@type': 'Article',
     headline: `${n.name} YouTube RPM & Earnings 2026`,
     description: `Full 2026 data on ${n.name} YouTube channel RPM, audience geography, and earnings estimates.`,
-    url: `${DOMAIN}/${n.slug}.html`,
+    url: `${DOMAIN}/${n.slug}`,
     author:    { '@type': 'Organization', name: 'YouTube Money Calculator' },
     publisher: { '@type': 'Organization', name: 'YouTube Money Calculator', url: DOMAIN },
   }, null, 2);
 }
 
 function renderPage(n) {
-  const title = `${n.name} YouTube RPM & Earnings 2026 — Full Data`;
-  const desc  = `${n.name} YouTube channels earn ${fmtMoney(n.rpm.low)}–${fmtMoney(n.rpm.high)} RPM in 2026. Audience geo breakdown, sub-niche rates, and a pre-filled earnings calculator.`;
+  const title = `${n.name} YouTube RPM & Earnings 2026`;
+  const desc  = `${n.name} YouTube channels earn ${fmtMoney(n.rpm.low)}–${fmtMoney(n.rpm.high)} RPM in 2026. Audience geo, sub-niche rates, and a pre-filled earnings calculator.`;
   const example1M = Math.round(1_000_000 / 1000 * n.rpm.mid);
 
   return `<!DOCTYPE html>
@@ -896,9 +896,12 @@ function renderPage(n) {
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(desc)}">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="${DOMAIN}/${n.slug}.html">
-  <link rel="alternate" hreflang="en"        href="${DOMAIN}/${n.slug}.html" />
-  <link rel="alternate" hreflang="x-default" href="${DOMAIN}/${n.slug}.html" />
+  <link rel="canonical" href="${DOMAIN}/${n.slug}">
+  <link rel="alternate" hreflang="en"        href="${DOMAIN}/${n.slug}" />
+  <link rel="alternate" hreflang="es"        href="${DOMAIN}/es/${n.slug}" />
+  <link rel="alternate" hreflang="fr"        href="${DOMAIN}/fr/${n.slug}" />
+  <link rel="alternate" hreflang="pt-BR"     href="${DOMAIN}/pt/${n.slug}" />
+  <link rel="alternate" hreflang="x-default" href="${DOMAIN}/${n.slug}" />
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -907,7 +910,7 @@ function renderPage(n) {
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(desc)}">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="${DOMAIN}/${n.slug}.html">
+  <meta property="og:url" content="${DOMAIN}/${n.slug}">
   <meta property="og:image" content="${DOMAIN}/og-image.svg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/style.css">
@@ -965,9 +968,9 @@ ${renderFaqJsonLd(n)}
       </a>
       <nav class="main-nav" aria-label="Main navigation">
         <a href="/">Calculator</a>
-        <a href="/youtube-rpm-guide.html">RPM Guide</a>
-        <a href="/youtube-rpm-by-country.html">By Country</a>
-        <a href="/youtube-shorts-money-calculator.html">Shorts</a>
+        <a href="/youtube-rpm-guide">RPM Guide</a>
+        <a href="/youtube-rpm-by-country">By Country</a>
+        <a href="/youtube-shorts-money-calculator">Shorts</a>
         <a href="/blog/">Blog</a>
       </nav>
       <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">
@@ -978,9 +981,9 @@ ${renderFaqJsonLd(n)}
 </header>
 <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
   <a href="/" class="mobile-nav-link">Calculator</a>
-  <a href="/youtube-rpm-guide.html" class="mobile-nav-link">RPM Guide</a>
-  <a href="/youtube-rpm-by-country.html" class="mobile-nav-link">By Country</a>
-  <a href="/youtube-shorts-money-calculator.html" class="mobile-nav-link">Shorts</a>
+  <a href="/youtube-rpm-guide" class="mobile-nav-link">RPM Guide</a>
+  <a href="/youtube-rpm-by-country" class="mobile-nav-link">By Country</a>
+  <a href="/youtube-shorts-money-calculator" class="mobile-nav-link">Shorts</a>
   <a href="/blog/" class="mobile-nav-link">Blog</a>
 </div>
 
@@ -1102,17 +1105,17 @@ ${n.sources.map(s => `          <li><a href="${s.url}" target="_blank" rel="noop
     <div class="container">
       <h2>Related Tools &amp; Guides</h2>
       <div class="article-grid">
-        <a href="/youtube-niche-rpm-calculator.html" class="article-card">
+        <a href="/youtube-niche-rpm-calculator" class="article-card">
           <div class="tag">Calculator</div>
           <div class="title">Full Niche RPM Calculator</div>
           <div class="desc">Compare RPM across all YouTube niches in one tool.</div>
         </a>
-        <a href="/youtube-rpm-by-country.html" class="article-card">
+        <a href="/youtube-rpm-by-country" class="article-card">
           <div class="tag">Guide</div>
           <div class="title">RPM by Country 2026</div>
           <div class="desc">Detailed CPM and RPM rates for every major country.</div>
         </a>
-        <a href="/best-youtube-niches-high-rpm.html" class="article-card">
+        <a href="/best-youtube-niches-high-rpm" class="article-card">
           <div class="tag">Guide</div>
           <div class="title">Best High-RPM Niches</div>
           <div class="desc">Ranked list of the highest-paying YouTube niches.</div>
@@ -1137,27 +1140,27 @@ ${n.sources.map(s => `          <li><a href="${s.url}" target="_blank" rel="noop
         <h4>Tools</h4>
         <ul>
           <li><a href="/">YouTube Money Calculator</a></li>
-          <li><a href="/youtube-cpm-calculator.html">CPM Calculator</a></li>
-          <li><a href="/youtube-shorts-money-calculator.html">Shorts Calculator</a></li>
-          <li><a href="/youtube-niche-rpm-calculator.html">Niche RPM Calculator</a></li>
+          <li><a href="/youtube-cpm-calculator">CPM Calculator</a></li>
+          <li><a href="/youtube-shorts-money-calculator">Shorts Calculator</a></li>
+          <li><a href="/youtube-niche-rpm-calculator">Niche RPM Calculator</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Guides</h4>
         <ul>
-          <li><a href="/youtube-rpm-guide.html">RPM Guide</a></li>
-          <li><a href="/youtube-rpm-by-country.html">RPM by Country</a></li>
-          <li><a href="/best-youtube-niches-high-rpm.html">Best Niches</a></li>
-          <li><a href="/youtube-ad-revenue-by-niche.html">Revenue by Niche</a></li>
+          <li><a href="/youtube-rpm-guide">RPM Guide</a></li>
+          <li><a href="/youtube-rpm-by-country">RPM by Country</a></li>
+          <li><a href="/best-youtube-niches-high-rpm">Best Niches</a></li>
+          <li><a href="/youtube-ad-revenue-by-niche">Revenue by Niche</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/privacy.html">Privacy Policy</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-          <li><a href="/disclaimer.html">Disclaimer</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/disclaimer">Disclaimer</a></li>
         </ul>
       </div>
     </div>
@@ -1216,10 +1219,10 @@ ${n.sources.map(s => `          <li><a href="${s.url}" target="_blank" rel="noop
 // ─── Main ────────────────────────────────────────────────────────────────────
 let generated = 0;
 for (const n of NICHES) {
-  const out = path.join(BASE, `${n.slug}.html`);
+  const out = path.join(BASE, `${n.slug}`);
   fs.writeFileSync(out, renderPage(n), 'utf8');
   generated++;
-  console.log(`  ✓ ${n.slug}.html  (RPM ${n.rpm.low}-${n.rpm.high}, ${n.geo[0].country} ${n.geo[0].pct}%)`);
+  console.log(`  ✓ ${n.slug}  (RPM ${n.rpm.low}-${n.rpm.high}, ${n.geo[0].country} ${n.geo[0].pct}%)`);
 }
 
 console.log(`\nGenerated ${generated} niche pages.`);

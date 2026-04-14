@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formula 1 / Motorsport YouTube RPM &amp; Earnings 2026</title>
+  <meta name="description" content="Formula 1 / Motorsport YouTube channels earn $3.50–$10.00 RPM in 2026. Audience geo, sub-niche rates, and a pre-filled earnings calculator.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ytbearnings.com/formula-1-motorsport-youtube-rpm-earnings">
+  <link rel="alternate" hreflang="en"        href="https://ytbearnings.com/formula-1-motorsport-youtube-rpm-earnings" />
+  <link rel="alternate" hreflang="es"        href="https://ytbearnings.com/es/formula-1-motorsport-youtube-rpm-earnings" />
+  <link rel="alternate" hreflang="fr"        href="https://ytbearnings.com/fr/formula-1-motorsport-youtube-rpm-earnings" />
+  <link rel="alternate" hreflang="pt-BR"     href="https://ytbearnings.com/pt/formula-1-motorsport-youtube-rpm-earnings" />
+  <link rel="alternate" hreflang="x-default" href="https://ytbearnings.com/formula-1-motorsport-youtube-rpm-earnings" />
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#FF0000">
+  <meta property="og:title" content="Formula 1 / Motorsport YouTube RPM &amp; Earnings 2026">
+  <meta property="og:description" content="Formula 1 / Motorsport YouTube channels earn $3.50–$10.00 RPM in 2026. Audience geo, sub-niche rates, and a pre-filled earnings calculator.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ytbearnings.com/formula-1-motorsport-youtube-rpm-earnings">
+  <meta property="og:image" content="https://ytbearnings.com/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .geo-bar { display:flex; height:28px; border-radius:6px; overflow:hidden; margin:16px 0 12px; }
+    .geo-seg { height:100%; transition:opacity .15s; }
+    .geo-seg:hover { opacity:.8; }
+    .geo-legend { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:8px 20px; font-size:.9rem; }
+    .geo-legend-item { display:flex; align-items:center; gap:8px; }
+    .geo-dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
+    .geo-pct { margin-left:auto; color:var(--text-muted); font-variant-numeric:tabular-nums; }
+    .niche-calc { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:28px; margin:24px 0 40px; }
+    .niche-calc h3 { margin:0 0 18px; }
+    .calc-row { display:grid; grid-template-columns:1fr; gap:16px; margin-bottom:16px; }
+    @media (min-width:720px) { .calc-row { grid-template-columns:1fr 1fr; } }
+    .calc-field label { display:block; font-weight:600; font-size:.9rem; margin-bottom:6px; }
+    .calc-field input[type="number"] { width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:6px; font-size:1rem; }
+    .calc-field input[type="range"] { width:100%; }
+    .calc-rpm-display { font-variant-numeric:tabular-nums; background:#FEE2E2; color:#991B1B; padding:2px 8px; border-radius:4px; font-weight:700; font-size:.85rem; margin-left:8px; }
+    .calc-results { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin-top:20px; }
+    .calc-res-card { background:var(--bg-alt); border-radius:8px; padding:14px; text-align:center; }
+    .calc-res-label { font-size:.78rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.05em; font-weight:600; }
+    .calc-res-value { font-size:1.5rem; font-weight:800; color:var(--text); margin-top:4px; font-variant-numeric:tabular-nums; }
+    .calc-res-card.primary { background:linear-gradient(135deg,#FEF2F2,#FEE2E2); border:1px solid #FCA5A5; }
+    .calc-res-card.primary .calc-res-value { color:var(--red); font-size:1.9rem; }
+    .tier-badge { display:inline-block; padding:2px 10px; border-radius:12px; font-size:.75rem; font-weight:700; text-transform:uppercase; }
+    .tier-badge.low { background:#FEF3C7; color:#92400E; }
+    .tier-badge.mid { background:#DBEAFE; color:#1E40AF; }
+    .tier-badge.high { background:#D1FAE5; color:#065F46; }
+    .tier-badge.very-high { background:#059669; color:#fff; }
+    .tier-badge.very-low { background:#FEE2E2; color:#991B1B; }
+    .faq-item { border-bottom:1px solid var(--border); padding:16px 0; }
+    .faq-item summary { font-weight:600; cursor:pointer; font-size:1.05rem; }
+    .faq-item p { margin:10px 0 0; color:var(--text-muted); }
+    .sources-list { font-size:.85rem; color:var(--text-muted); }
+    .sources-list a { color:var(--blue); }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Formula 1 / Motorsport YouTube RPM & Earnings 2026",
+  "description": "Full 2026 data on Formula 1 / Motorsport YouTube channel RPM, audience geography, and earnings estimates.",
+  "url": "https://ytbearnings.com/formula-1-motorsport-youtube-rpm-earnings",
+  "author": {
+    "@type": "Organization",
+    "name": "YouTube Money Calculator"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "YouTube Money Calculator",
+    "url": "https://ytbearnings.com"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is F1 RPM higher than general soccer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Audience geography. F1 viewership is concentrated in tier-1 countries (US/UK/Germany/Netherlands/Italy). Soccer viewership is concentrated in tier-3 countries (India, Brazil, Indonesia). The difference in advertiser CPM between these markets is 5–10×."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a non-racing driver produce F1 content?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. The most successful F1 YouTube channels are typically produced by journalists, engineers, or passionate fans — not drivers. Content quality and consistency matter more than credentials."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do other motorsports pay as well?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NASCAR and IndyCar RPMs are in the $4–$7 range, slightly below F1. WRC, MotoGP, and Formula E sit around $4–$6. F1 commands the top because of the global premium audience."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should F1 channels post?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most successful F1 channels publish 2–4 videos per race week during the season (March-December) and 1–2 per week off-season. The race calendar dictates content rhythm."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+<div class="red-top-bar"></div>
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="YouTube Money Calculator Home">
+        <span class="logo-icon" aria-hidden="true">▶$</span>
+        <span class="logo-text">YT Money Calculator</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/">Calculator</a>
+        <a href="/youtube-rpm-guide">RPM Guide</a>
+        <a href="/youtube-rpm-by-country">By Country</a>
+        <a href="/youtube-shorts-money-calculator">Shorts</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <a href="/" class="mobile-nav-link">Calculator</a>
+  <a href="/youtube-rpm-guide" class="mobile-nav-link">RPM Guide</a>
+  <a href="/youtube-rpm-by-country" class="mobile-nav-link">By Country</a>
+  <a href="/youtube-shorts-money-calculator" class="mobile-nav-link">Shorts</a>
+  <a href="/blog/" class="mobile-nav-link">Blog</a>
+</div>
+
+<main>
+
+  <section class="hero" style="padding:40px 0 32px;background:#fff;border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="hero-badge">🏎️ Formula 1 / Motorsport</div>
+      <h1>Formula 1 / Motorsport YouTube RPM &amp; Earnings 2026</h1>
+      <div class="accent-line"></div>
+      <p class="hero-desc">Typical Formula 1 / Motorsport channel RPM runs <strong>$3.50 – $10.00</strong> in 2026 <span class="tier-badge mid">mid RPM</span>. A channel averaging 1M monthly views earns around <strong>$6,000.00</strong> per month from AdSense alone.</p>
+    </div>
+  </section>
+
+  <section style="padding:32px 0 16px;">
+    <div class="container">
+
+      <div class="article-body" style="max-width:820px;margin:0 auto;">
+
+        <p>Formula 1 and motorsport channels earn a solid $6 RPM average in 2026, benefiting from one of the most tier-1-weighted audiences on YouTube. More than 60% of F1 viewership comes from the US, UK, Germany, Netherlands, and Italy — all premium CPM markets. Watch brands (Rolex, TAG Heuer), crypto exchanges (Crypto.com), and automotive advertisers lift RPMs well above the sports baseline.</p>
+
+        <!-- EMBEDDED CALCULATOR -->
+        <div class="niche-calc">
+          <h3>🏎️ Formula 1 / Motorsport Earnings Calculator</h3>
+          <p style="color:var(--text-muted);margin:0 0 18px;font-size:.95rem;">Pre-filled with typical Formula 1 / Motorsport RPM. Adjust views and RPM to model your channel.</p>
+          <div class="calc-row">
+            <div class="calc-field">
+              <label for="nc-views">Monthly Views</label>
+              <input type="number" id="nc-views" value="1000000" min="0" step="10000">
+            </div>
+            <div class="calc-field">
+              <label for="nc-rpm">RPM <span class="calc-rpm-display" id="nc-rpm-display">$6.00</span></label>
+              <input type="range" id="nc-rpm" min="3.5" max="10" step="0.05" value="6">
+              <div style="display:flex;justify-content:space-between;font-size:.8rem;color:var(--text-muted);margin-top:4px;">
+                <span>$3.50 low</span><span>$6.00 typical</span><span>$10.00 high</span>
+              </div>
+            </div>
+          </div>
+          <div class="calc-results">
+            <div class="calc-res-card primary">
+              <div class="calc-res-label">Monthly Revenue</div>
+              <div class="calc-res-value" id="nc-monthly">$6,000.00</div>
+            </div>
+            <div class="calc-res-card">
+              <div class="calc-res-label">Daily</div>
+              <div class="calc-res-value" id="nc-daily">$200.00</div>
+            </div>
+            <div class="calc-res-card">
+              <div class="calc-res-label">Yearly</div>
+              <div class="calc-res-value" id="nc-yearly">$72,000.00</div>
+            </div>
+            <div class="calc-res-card">
+              <div class="calc-res-label">Per 1K Views</div>
+              <div class="calc-res-value" id="nc-per-mille">$6.00</div>
+            </div>
+          </div>
+          <p style="margin-top:16px;font-size:.8rem;color:var(--text-muted);">⚠ Estimate only. Actual RPM varies by sub-niche, exact audience mix, and ad density. Check YouTube Studio for real data.</p>
+        </div>
+
+        <h2>Formula 1 / Motorsport Audience Geography</h2>
+        <p>Audience geography is the single biggest driver of RPM for Formula 1 / Motorsport channels. Here is the typical viewing distribution:</p>
+
+        <div class="geo-bar"><div class="geo-seg" style="width:22%;background:#10B981;" title="USA 22%"></div><div class="geo-seg" style="width:14%;background:#10B981;" title="UK 14%"></div><div class="geo-seg" style="width:10%;background:#10B981;" title="Germany 10%"></div><div class="geo-seg" style="width:9%;background:#10B981;" title="Netherlands 9%"></div><div class="geo-seg" style="width:7%;background:#10B981;" title="Italy 7%"></div><div class="geo-seg" style="width:38%;background:#6B7280;" title="Other 38%"></div></div>
+        <div class="geo-legend"><div class="geo-legend-item"><span class="geo-dot" style="background:#10B981;"></span><span>🇺🇸 USA</span><span class="geo-pct">22%</span></div><div class="geo-legend-item"><span class="geo-dot" style="background:#10B981;"></span><span>🇬🇧 UK</span><span class="geo-pct">14%</span></div><div class="geo-legend-item"><span class="geo-dot" style="background:#10B981;"></span><span>🇩🇪 Germany</span><span class="geo-pct">10%</span></div><div class="geo-legend-item"><span class="geo-dot" style="background:#10B981;"></span><span>🇳🇱 Netherlands</span><span class="geo-pct">9%</span></div><div class="geo-legend-item"><span class="geo-dot" style="background:#10B981;"></span><span>🇮🇹 Italy</span><span class="geo-pct">7%</span></div><div class="geo-legend-item"><span class="geo-dot" style="background:#6B7280;"></span><span>🌐 Other</span><span class="geo-pct">38%</span></div></div>
+        <p style="font-size:.85rem;color:var(--text-muted);margin-top:8px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#10B981;margin-right:4px;"></span> Tier 1 (US/CA/UK/AU/DE) • <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#F59E0B;margin-right:4px;"></span> Tier 2 (BR/MX/CN) • <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#EF4444;margin-right:4px;"></span> Tier 3 (IN/PK/ID/BD)</p>
+
+        <h2>Formula 1 / Motorsport RPM by Sub-Niche</h2>
+        <p>Within Formula 1 / Motorsport content, different formats earn meaningfully different RPMs:</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Sub-Niche</th><th>RPM Range</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>F1 News / Race Coverage</td><td>$4.00 – $8.00</td><td>High volume weekly content</td></tr>
+              <tr><td>Technical Analysis / Engineering</td><td>$6.00 – $11.00</td><td>Adult engineer demo, high CPM</td></tr>
+              <tr><td>Onboard / Driver POV</td><td>$3.50 – $7.00</td><td>Visual content, moderate ad fit</td></tr>
+              <tr><td>F1 Game / Sim Racing</td><td>$3.00 – $5.50</td><td>Gaming CPM floor applies</td></tr>
+              <tr><td>Automotive / Supercar</td><td>$5.00 – $10.00</td><td>Luxury auto advertiser pool</td></tr>
+              <tr><td>NASCAR / IndyCar</td><td>$4.00 – $8.00</td><td>US-heavy audience, moderate-high</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Why Formula 1 / Motorsport Channels Earn Mid RPM</h2>
+        <h3>Premium European + US audience</h3>
+        <p>F1's audience composition is a CPM dream: nearly every viewer is in a tier-1 advertising market. UK and Germany alone represent 24% of viewership, and these countries have some of the highest sports CPMs outside the US.</p>
+        <h3>Luxury advertiser category</h3>
+        <p>F1 sponsors include Rolex, TAG Heuer, Heineken, Crypto.com, Oracle, and AWS. This advertiser mix filters down to YouTube F1 content, producing CPMs 30–60% above generic sports content.</p>
+        <h3>Netflix &quot;Drive to Survive&quot; bump</h3>
+        <p>The series grew US viewership from ~2% to 22% of global F1 audience in five years. This US expansion transformed the economics of F1 YouTube content — channels that would have earned $3 RPM in 2018 now earn $6-8.</p>
+
+        <h2>Formula 1 / Motorsport Earnings by View Count</h2>
+        <p>Reference table showing estimated monthly AdSense revenue at the three RPM tiers for Formula 1 / Motorsport channels:</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Monthly Views</th>
+                <th>RPM $3.50 (low)</th>
+                <th>RPM $6.00 (typical)</th>
+                <th>RPM $10.00 (high)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span>100,000</span></td><td>$350</td><td>$600</td><td>$1,000</td></tr>
+              <tr><td><span>500,000</span></td><td>$1,750</td><td>$3,000</td><td>$5,000</td></tr>
+              <tr class="tr-highlight"><td><strong>1,000,000</strong></td><td>$3,500</td><td>$6,000</td><td>$10,000</td></tr>
+              <tr><td><span>5,000,000</span></td><td>$17,500</td><td>$30,000</td><td>$50,000</td></tr>
+              <tr><td><span>10,000,000</span></td><td>$35,000</td><td>$60,000</td><td>$100,000</td></tr>
+              <tr><td><span>50,000,000</span></td><td>$175,000</td><td>$300,000</td><td>$500,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Example Formula 1 / Motorsport Channels (Reference)</h2>
+        <p>Representative channel archetypes at different scales. Exact RPMs vary; these are industry-reported ranges:</p>
+        <ul>
+          <li><strong>WTF1 style</strong> (~1.5M subs) — F1 news + meme, RPM ~$5-8</li>
+          <li><strong>Chain Bear F1 style</strong> (~500K subs) — Technical analysis, RPM ~$7-11</li>
+          <li><strong>Driver61 style</strong> (~1M subs) — Racing analysis, RPM ~$6-10</li>
+        </ul>
+
+        <h2>FAQ — Formula 1 / Motorsport YouTube Earnings</h2>
+      <details class="faq-item">
+        <summary>Why is F1 RPM higher than general soccer?</summary>
+        <p>Audience geography. F1 viewership is concentrated in tier-1 countries (US/UK/Germany/Netherlands/Italy). Soccer viewership is concentrated in tier-3 countries (India, Brazil, Indonesia). The difference in advertiser CPM between these markets is 5–10×.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can a non-racing driver produce F1 content?</summary>
+        <p>Absolutely. The most successful F1 YouTube channels are typically produced by journalists, engineers, or passionate fans — not drivers. Content quality and consistency matter more than credentials.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do other motorsports pay as well?</summary>
+        <p>NASCAR and IndyCar RPMs are in the $4–$7 range, slightly below F1. WRC, MotoGP, and Formula E sit around $4–$6. F1 commands the top because of the global premium audience.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How often should F1 channels post?</summary>
+        <p>Most successful F1 channels publish 2–4 videos per race week during the season (March-December) and 1–2 per week off-season. The race calendar dictates content rhythm.</p>
+      </details>
+
+        <h2>Sources</h2>
+        <ul class="sources-list">
+          <li><a href="https://corp.formula1.com/formula-1-2025-season-review/" target="_blank" rel="noopener noreferrer">Formula 1 – 2025 season audience review</a></li>
+          <li><a href="https://www.formula1.com/" target="_blank" rel="noopener noreferrer">F1 + Motorsport Network 2025 fan survey</a></li>
+          <li>Creator-reported RPM data from r/PartneredYoutube and public creator analytics disclosures</li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="related-calculators">
+    <div class="container">
+      <h2>Related Tools &amp; Guides</h2>
+      <div class="article-grid">
+        <a href="/youtube-niche-rpm-calculator" class="article-card">
+          <div class="tag">Calculator</div>
+          <div class="title">Full Niche RPM Calculator</div>
+          <div class="desc">Compare RPM across all YouTube niches in one tool.</div>
+        </a>
+        <a href="/youtube-rpm-by-country" class="article-card">
+          <div class="tag">Guide</div>
+          <div class="title">RPM by Country 2026</div>
+          <div class="desc">Detailed CPM and RPM rates for every major country.</div>
+        </a>
+        <a href="/best-youtube-niches-high-rpm" class="article-card">
+          <div class="tag">Guide</div>
+          <div class="title">Best High-RPM Niches</div>
+          <div class="desc">Ranked list of the highest-paying YouTube niches.</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo footer-logo" aria-label="YouTube Money Calculator">
+          <span class="logo-icon" aria-hidden="true">▶$</span>
+          <span class="logo-text">YT Money Calculator</span>
+        </a>
+        <p>Free YouTube earnings estimator for creators. Not affiliated with YouTube or Google.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/">YouTube Money Calculator</a></li>
+          <li><a href="/youtube-cpm-calculator">CPM Calculator</a></li>
+          <li><a href="/youtube-shorts-money-calculator">Shorts Calculator</a></li>
+          <li><a href="/youtube-niche-rpm-calculator">Niche RPM Calculator</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="/youtube-rpm-guide">RPM Guide</a></li>
+          <li><a href="/youtube-rpm-by-country">RPM by Country</a></li>
+          <li><a href="/best-youtube-niches-high-rpm">Best Niches</a></li>
+          <li><a href="/youtube-ad-revenue-by-niche">Revenue by Niche</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/disclaimer">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 YouTube Money Calculator. Not affiliated with YouTube or Google.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  if (navToggle && mobileNav) {
+    navToggle.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+      mobileNav.setAttribute('aria-hidden', String(!open));
+    });
+  }
+
+  // Niche calculator
+  (function () {
+    const views = document.getElementById('nc-views');
+    const rpm   = document.getElementById('nc-rpm');
+    const disp  = document.getElementById('nc-rpm-display');
+    const mo    = document.getElementById('nc-monthly');
+    const day   = document.getElementById('nc-daily');
+    const yr    = document.getElementById('nc-yearly');
+    const pm    = document.getElementById('nc-per-mille');
+    if (!views || !rpm) return;
+
+    const fmt = n => '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+    function update() {
+      const v = Math.max(0, Number(views.value) || 0);
+      const r = Number(rpm.value);
+      const monthly = v / 1000 * r;
+      disp.textContent = fmt(r);
+      mo.textContent  = fmt(monthly);
+      day.textContent = fmt(monthly / 30);
+      yr.textContent  = fmt(monthly * 12);
+      pm.textContent  = fmt(r);
+    }
+
+    views.addEventListener('input', update);
+    rpm.addEventListener('input', update);
+    update();
+  })();
+</script>
+</body>
+</html>

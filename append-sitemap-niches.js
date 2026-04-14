@@ -36,7 +36,7 @@ const entries = [];
 
 for (const lang of LANGS) {
   for (const slug of SLUGS) {
-    const loc = `${DOMAIN}/${lang}/${slug}.html`;
+    const loc = `${DOMAIN}/${lang}/${slug}`;
     if (xml.includes(loc)) continue;
     entries.push(`  <url>
     <loc>${loc}</loc>

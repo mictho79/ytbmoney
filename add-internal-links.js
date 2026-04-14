@@ -239,7 +239,7 @@ function buildRelatedList(slug, lang, titleMap) {
   const combined = [...withinLinks, ...crossLinks];
 
   const links = combined.map(s => ({
-    href:  `${prefix}/${s}.html`,
+    href:  `${prefix}/${s}`,
     title: titleMap.get(langKey(s)),
   }));
 

@@ -81,7 +81,8 @@ for (const lang of LANGS) {
   const langDir = lang ? path.join(BASE, lang) : BASE;
 
   for (const calc of CALCULATORS) {
-    const fileName = `${calc.slug}.html`;
+    const fileName = `${calc.slug}.html`;       // disk file (always .html)
+    const urlSlug  = calc.slug === 'index' ? '' : calc.slug;  // URL path (clean, no .html)
     const fp = path.join(langDir, fileName);
     if (!fs.existsSync(fp)) continue;
 
@@ -93,10 +94,10 @@ for (const lang of LANGS) {
       continue;
     }
 
-    // Build localized name and URL
-    const name    = lang ? (NAME_I18N[lang][calc.name] || calc.name) : calc.name;
-    const url     = lang ? `${DOMAIN}/${lang}/${fileName === 'index.html' ? '' : fileName}`
-                         : `${DOMAIN}/${fileName === 'index.html' ? '' : fileName}`;
+    // Build localized name and URL (clean URL, no .html)
+    const name = lang ? (NAME_I18N[lang][calc.name] || calc.name) : calc.name;
+    const url  = lang ? `${DOMAIN}/${lang}/${urlSlug}`
+                      : `${DOMAIN}/${urlSlug}`;
 
     const jsonLd = buildJsonLd(name, calc.desc, url);
 
