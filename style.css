@@ -802,6 +802,35 @@ label {
   color: var(--text-muted);
 }
 
+.results-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  background: #FF0000;
+  border: 1.5px solid #FF0000;
+  border-radius: 100px;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.share-btn:hover { background: #D70000; border-color: #D70000; }
+.share-btn:active { transform: translateY(1px); }
+.share-btn:focus-visible { outline: 2px solid #FF0000; outline-offset: 2px; }
+.share-btn svg { flex-shrink: 0; }
+
 /* Results Grid */
 .results-grid {
   display: grid;

@@ -14,6 +14,10 @@ const T = {
     advanced_lf: 'Advanced · Long-form',
     advanced_sh: 'Advanced · Shorts',
     lf_earns:    (n) => `Long-form earns approximately ${n}× more than Shorts for the same view count.`,
+    share_text:  (views, monthly) => `A YouTube channel with ${views} monthly views would earn ${monthly}/month. Calculate yours:`,
+    share_title: 'YouTube Earnings',
+    share_btn:   'Share',
+    link_copied: '✓ Link copied',
   },
   fr: {
     at_rpm:      (r) => `à ${r} RPM`,
@@ -21,6 +25,10 @@ const T = {
     advanced_lf: 'Avancé · Vidéo Longue',
     advanced_sh: 'Avancé · Shorts',
     lf_earns:    (n) => `La vidéo longue rapporte environ ${n}× plus que les Shorts pour le même nombre de vues.`,
+    share_text:  (views, monthly) => `Une chaîne YouTube avec ${views} vues par mois gagnerait ${monthly}/mois. Calcule la tienne :`,
+    share_title: 'Revenus YouTube',
+    share_btn:   'Partager',
+    link_copied: '✓ Lien copié',
   },
   es: {
     at_rpm:      (r) => `a ${r} RPM`,
@@ -28,6 +36,10 @@ const T = {
     advanced_lf: 'Avanzado · Video Largo',
     advanced_sh: 'Avanzado · Shorts',
     lf_earns:    (n) => `El video largo genera aproximadamente ${n}× más que los Shorts para el mismo número de vistas.`,
+    share_text:  (views, monthly) => `Un canal de YouTube con ${views} vistas mensuales ganaría ${monthly}/mes. Calcula el tuyo:`,
+    share_title: 'Ganancias de YouTube',
+    share_btn:   'Compartir',
+    link_copied: '✓ Enlace copiado',
   },
   pt: {
     at_rpm:      (r) => `a ${r} RPM`,
@@ -35,6 +47,10 @@ const T = {
     advanced_lf: 'Avançado · Vídeo Longo',
     advanced_sh: 'Avançado · Shorts',
     lf_earns:    (n) => `O vídeo longo gera aproximadamente ${n}× mais que os Shorts para o mesmo número de visualizações.`,
+    share_text:  (views, monthly) => `Um canal do YouTube com ${views} visualizações mensais ganharia ${monthly}/mês. Calcule o seu:`,
+    share_title: 'Ganhos do YouTube',
+    share_btn:   'Compartilhar',
+    link_copied: '✓ Link copiado',
   },
 }[LANG] || {
   at_rpm:      (r) => `at ${r} RPM`,
@@ -42,6 +58,10 @@ const T = {
   advanced_lf: 'Advanced · Long-form',
   advanced_sh: 'Advanced · Shorts',
   lf_earns:    (n) => `Long-form earns approximately ${n}× more than Shorts for the same view count.`,
+  share_text:  (views, monthly) => `A YouTube channel with ${views} monthly views would earn ${monthly}/month. Calculate yours:`,
+  share_title: 'YouTube Earnings',
+  share_btn:   'Share',
+  link_copied: '✓ Link copied',
 };
 
 /* ===== CONSTANTS ===== */
@@ -332,11 +352,6 @@ document.querySelectorAll('.content-btn').forEach(btn => {
       b.classList.toggle('active', b.dataset.type === currentContentType);
     });
 
-    const rateInput = document.getElementById('monetized-rate');
-    if (rateInput) {
-      rateInput.value = currentContentType === 'longform' ? 40 : 100;
-    }
-
     updateRPMHints();
     recalculate();
   });
@@ -369,7 +384,7 @@ document.getElementById('basic-cpm').addEventListener('input', e => {
 
 /* ===== ADVANCED: LIVE INPUTS ===== */
 
-['adv-views', 'pct-usa', 'pct-europe', 'pct-india', 'pct-other', 'monetized-rate'].forEach(id => {
+['adv-views', 'pct-usa', 'pct-europe', 'pct-india', 'pct-other'].forEach(id => {
   const el = document.getElementById(id);
   if (el) el.addEventListener('input', recalculate);
 });
@@ -440,13 +455,186 @@ if (navToggle && mobileNav) {
   });
 }
 
+/* ===== PERMALINKS ===== */
+/**
+ * Read calculator state from URL params (?views=&rpm=&mode=&type=&usa=&eu=&in=&other=)
+ * and apply to the form. Also binds inputs so the URL stays in sync, enabling
+ * one-click sharing of a pre-filled calculation.
+ */
+const PERMALINK_DEBOUNCE_MS = 300;
+let permalinkTimer = null;
+
+function applyPermalinkFromURL() {
+  const p = new URLSearchParams(window.location.search);
+  if ([...p.keys()].length === 0) return;
+
+  const mode = p.get('mode');
+  const type = p.get('type');
+  const views = p.get('views');
+  const rpm = p.get('rpm');
+  const cpm = p.get('cpm');
+  const usa = p.get('usa');
+  const eu = p.get('eu');
+  const india = p.get('in');
+  const other = p.get('other');
+  const custom = p.get('custom');
+
+  if (mode === 'advanced') {
+    const advBtn = document.querySelector('.mode-btn[data-mode="advanced"]');
+    if (advBtn) advBtn.click();
+  }
+
+  if (type === 'shorts') {
+    const shBtn = document.querySelector('.content-btn[data-type="shorts"]');
+    if (shBtn) shBtn.click();
+  }
+
+  if (views) {
+    const basicViews = document.getElementById('basic-views');
+    const advViews = document.getElementById('adv-views');
+    if (basicViews) basicViews.value = views;
+    if (advViews) advViews.value = views;
+  }
+
+  if (rpm && rpmSlider) {
+    const v = clamp(parseFloat(rpm), parseFloat(rpmSlider.min), parseFloat(rpmSlider.max));
+    rpmSlider.value = v;
+    rpmDisplay.textContent = formatRPM(v);
+    updateSliderTrack();
+  }
+
+  if (cpm) {
+    const cpmEl = document.getElementById('basic-cpm');
+    if (cpmEl) cpmEl.value = cpm;
+  }
+
+  if (usa)   { const el = document.getElementById('pct-usa');    if (el) el.value = usa; }
+  if (eu)    { const el = document.getElementById('pct-europe'); if (el) el.value = eu; }
+  if (india) { const el = document.getElementById('pct-india');  if (el) el.value = india; }
+  if (other) { const el = document.getElementById('pct-other');  if (el) el.value = other; }
+
+  if (custom) {
+    const toggle = document.getElementById('custom-rpm-toggle');
+    const val = document.getElementById('custom-rpm-val');
+    if (toggle && val) {
+      toggle.checked = true;
+      toggle.dispatchEvent(new Event('change'));
+      val.value = custom;
+    }
+  }
+}
+
+function buildPermalinkParams() {
+  const p = new URLSearchParams();
+  p.set('mode', currentMode);
+
+  if (currentMode === 'basic') {
+    const views = document.getElementById('basic-views').value;
+    const rpm = rpmSlider.value;
+    if (views) p.set('views', views);
+    if (rpm)   p.set('rpm', rpm);
+  } else {
+    p.set('type', currentContentType);
+    const views = document.getElementById('adv-views').value;
+    if (views) p.set('views', views);
+    const pcts = getPercentages();
+    p.set('usa', pcts.usa);
+    p.set('eu', pcts.europe);
+    p.set('in', pcts.india);
+    p.set('other', pcts.other);
+    const customToggle = document.getElementById('custom-rpm-toggle');
+    if (customToggle && customToggle.checked) {
+      const v = document.getElementById('custom-rpm-val').value;
+      if (v) p.set('custom', v);
+    }
+  }
+  return p;
+}
+
+function updateURLDebounced() {
+  clearTimeout(permalinkTimer);
+  permalinkTimer = setTimeout(() => {
+    const p = buildPermalinkParams();
+    const newUrl = window.location.pathname + '?' + p.toString() + window.location.hash;
+    window.history.replaceState(null, '', newUrl);
+  }, PERMALINK_DEBOUNCE_MS);
+}
+
+function bindPermalinkSync() {
+  const ids = [
+    'basic-views', 'basic-rpm', 'basic-cpm',
+    'adv-views', 'pct-usa', 'pct-europe', 'pct-india', 'pct-other',
+    'custom-rpm-toggle', 'custom-rpm-val'
+  ];
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', updateURLDebounced);
+      el.addEventListener('change', updateURLDebounced);
+    }
+  });
+  document.querySelectorAll('.mode-btn, .content-btn').forEach(b => {
+    b.addEventListener('click', updateURLDebounced);
+  });
+}
+
+/* ===== SHARE BUTTON ===== */
+
+function buildShareURL() {
+  const p = buildPermalinkParams();
+  return window.location.origin + window.location.pathname + '?' + p.toString();
+}
+
+function buildShareText() {
+  const monthly = document.getElementById('monthly-revenue').textContent;
+  const views   = currentMode === 'basic'
+    ? document.getElementById('basic-views').value
+    : document.getElementById('adv-views').value;
+  const viewsFmt = views ? formatNumber(parseFloat(views)) : '0';
+  return T.share_text(viewsFmt, monthly);
+}
+
+async function handleShare() {
+  const url  = buildShareURL();
+  const text = buildShareText();
+
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: T.share_title, text, url });
+      return;
+    } catch (_) { /* user cancelled — fall through */ }
+  }
+
+  const btn = document.getElementById('share-btn');
+  const labelSpan = btn ? btn.querySelector('span.share-btn-label') : null;
+
+  try {
+    await navigator.clipboard.writeText(url);
+    if (btn) {
+      const original = btn.innerHTML;
+      btn.innerHTML = T.link_copied;
+      setTimeout(() => { btn.innerHTML = original; }, 2000);
+    }
+  } catch (_) {
+    window.prompt(T.link_copied.replace(/^✓\s*/, ''), url);
+  }
+}
+
+function bindShareButton() {
+  const btn = document.getElementById('share-btn');
+  if (btn) btn.addEventListener('click', handleShare);
+}
+
 /* ===== INITIALIZE ===== */
 
 function init() {
   updateSliderTrack();
   rpmDisplay.textContent = formatRPM(parseFloat(rpmSlider.value));
   updateRPMHints();
+  applyPermalinkFromURL();
   recalculate();
+  bindPermalinkSync();
+  bindShareButton();
 }
 
 if (document.readyState === 'loading') {

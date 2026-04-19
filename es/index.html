@@ -300,26 +300,22 @@
 
             <div class="adv-options-wrap">
               <details class="adv-options">
-                <summary>Opciones Avanzadas <span class="summary-hint">(tasa de reproducción monetizada, RPM personalizado)</span></summary>
+                <summary>Opciones Avanzadas <span class="summary-hint">(RPM personalizado)</span></summary>
                 <div class="adv-options-inner">
-                  <div class="form-grid">
-                    <div class="form-group">
-                      <label for="monetized-rate">Tasa de Reproducción Monetizada (%)</label>
-                      <input type="number" id="monetized-rate" value="40" min="1" max="100" class="form-input">
-                      <span class="form-hint">Porcentaje de vistas monetizadas. Videos largos ~40%. No se aplica a Shorts.</span>
+                  <p class="form-hint" style="margin-bottom:12px">
+                    Los RPM regionales mostrados arriba son valores <em>observados</em> típicos del sector — ya incluyen la tasa de reproducción monetizada (~40%) y la participación del 45% de YouTube. No necesitan ajuste adicional.
+                  </p>
+                  <div class="form-group">
+                    <div class="custom-rpm-row">
+                      <label class="checkbox-label">
+                        <input type="checkbox" id="custom-rpm-toggle" aria-controls="custom-rpm-input">
+                        <span>Usar un RPM personalizado</span>
+                      </label>
                     </div>
-                    <div class="form-group">
-                      <div class="custom-rpm-row">
-                        <label class="checkbox-label">
-                          <input type="checkbox" id="custom-rpm-toggle" aria-controls="custom-rpm-input">
-                          <span>Usar un RPM personalizado</span>
-                        </label>
-                      </div>
-                      <div id="custom-rpm-input" class="hidden" aria-hidden="true">
-                        <label for="custom-rpm-val">RPM personalizado ($)</label>
-                        <input type="number" id="custom-rpm-val" value="4" min="0" step="0.5" class="form-input" style="margin-top:8px">
-                        <span class="form-hint">Reemplaza el RPM ponderado regional estimado.</span>
-                      </div>
+                    <div id="custom-rpm-input" class="hidden" aria-hidden="true">
+                      <label for="custom-rpm-val">RPM personalizado ($)</label>
+                      <input type="number" id="custom-rpm-val" value="4" min="0" step="0.5" class="form-input" style="margin-top:8px">
+                      <span class="form-hint">Reemplaza el RPM ponderado regional estimado.</span>
                     </div>
                   </div>
                 </div>
@@ -330,7 +326,13 @@
           <div id="results" class="results-section" aria-live="polite">
             <div class="results-label-row">
               <h3 class="results-heading">Ganancias Estimadas</h3>
-              <span class="results-mode-tag" id="results-mode-tag">Modo Básico</span>
+              <div class="results-actions">
+                <span class="results-mode-tag" id="results-mode-tag">Modo Básico</span>
+                <button type="button" id="share-btn" class="share-btn" aria-label="Compartir este cálculo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  Compartir
+                </button>
+              </div>
             </div>
             <div class="results-grid">
               <div class="result-card result-card--main">
@@ -718,6 +720,7 @@
     });
   }
 </script>
+<script src="/cookie-banner.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4020973443671350" crossorigin="anonymous"></script>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>

@@ -369,28 +369,23 @@
             <!-- Advanced Options (collapsible) -->
             <div class="adv-options-wrap">
               <details class="adv-options">
-                <summary>Advanced Options <span class="summary-hint">(monetized playback rate, custom RPM)</span></summary>
+                <summary>Advanced Options <span class="summary-hint">(custom RPM override)</span></summary>
                 <div class="adv-options-inner">
-                  <div class="form-grid">
-                    <div class="form-group">
-                      <label for="monetized-rate">Monetized Playback Rate (%)</label>
-                      <input type="number" id="monetized-rate" value="40" min="1" max="100"
-                        class="form-input" aria-describedby="monetized-hint">
-                      <span class="form-hint" id="monetized-hint">Percentage of views that are monetized. Long-form ~40%. Not applied to Shorts (Shorts use pooled revenue).</span>
+                  <p class="form-hint" style="margin-bottom:12px">
+                    The regional RPMs above are industry-typical <em>observed</em> values — they already account for the ~40% monetized playback rate and YouTube's 45% revenue share. No extra adjustment needed.
+                  </p>
+                  <div class="form-group">
+                    <div class="custom-rpm-row">
+                      <label class="checkbox-label">
+                        <input type="checkbox" id="custom-rpm-toggle" aria-controls="custom-rpm-input">
+                        <span>Override with a custom RPM</span>
+                      </label>
                     </div>
-                    <div class="form-group">
-                      <div class="custom-rpm-row">
-                        <label class="checkbox-label">
-                          <input type="checkbox" id="custom-rpm-toggle" aria-controls="custom-rpm-input">
-                          <span>Override with a custom RPM</span>
-                        </label>
-                      </div>
-                      <div id="custom-rpm-input" class="hidden" aria-hidden="true">
-                        <label for="custom-rpm-val">Custom RPM ($)</label>
-                        <input type="number" id="custom-rpm-val" value="4" min="0" step="0.5"
-                          class="form-input" style="margin-top:8px">
-                        <span class="form-hint">Overrides the weighted regional RPM estimate.</span>
-                      </div>
+                    <div id="custom-rpm-input" class="hidden" aria-hidden="true">
+                      <label for="custom-rpm-val">Custom RPM ($)</label>
+                      <input type="number" id="custom-rpm-val" value="4" min="0" step="0.5"
+                        class="form-input" style="margin-top:8px">
+                      <span class="form-hint">Overrides the weighted regional RPM estimate.</span>
                     </div>
                   </div>
                 </div>
@@ -405,7 +400,13 @@
 
             <div class="results-label-row">
               <h3 class="results-heading">Estimated Earnings</h3>
-              <span class="results-mode-tag" id="results-mode-tag">Basic Mode</span>
+              <div class="results-actions">
+                <span class="results-mode-tag" id="results-mode-tag">Basic Mode</span>
+                <button type="button" id="share-btn" class="share-btn" aria-label="Share this calculation">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  Share
+                </button>
+              </div>
             </div>
 
             <div class="results-grid">
@@ -965,6 +966,7 @@
     </div>
   </footer>
 
+  <script src="/cookie-banner.js"></script>
   <script src="script.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4020973443671350" crossorigin="anonymous"></script>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>

@@ -357,28 +357,23 @@
             <!-- Advanced Options (collapsible) -->
             <div class="adv-options-wrap">
               <details class="adv-options">
-                <summary>Options Avancées <span class="summary-hint">(taux de lecture monétisée, RPM personnalisé)</span></summary>
+                <summary>Options Avancées <span class="summary-hint">(RPM personnalisé)</span></summary>
                 <div class="adv-options-inner">
-                  <div class="form-grid">
-                    <div class="form-group">
-                      <label for="monetized-rate">Taux de Lecture Monétisée (%)</label>
-                      <input type="number" id="monetized-rate" value="40" min="1" max="100"
-                        class="form-input" aria-describedby="monetized-hint">
-                      <span class="form-hint" id="monetized-hint">Pourcentage de vues monétisées. Vidéo longue ~40 %. Non appliqué aux Shorts (les Shorts utilisent un modèle de revenus mutualisés).</span>
+                  <p class="form-hint" style="margin-bottom:12px">
+                    Les RPM régionaux ci-dessus sont des valeurs <em>observées</em> typiques du secteur — elles tiennent déjà compte du taux de lecture monétisée (~40 %) et du partage de 45 % de YouTube. Aucun ajustement supplémentaire nécessaire.
+                  </p>
+                  <div class="form-group">
+                    <div class="custom-rpm-row">
+                      <label class="checkbox-label">
+                        <input type="checkbox" id="custom-rpm-toggle" aria-controls="custom-rpm-input">
+                        <span>Utiliser un RPM personnalisé</span>
+                      </label>
                     </div>
-                    <div class="form-group">
-                      <div class="custom-rpm-row">
-                        <label class="checkbox-label">
-                          <input type="checkbox" id="custom-rpm-toggle" aria-controls="custom-rpm-input">
-                          <span>Utiliser un RPM personnalisé</span>
-                        </label>
-                      </div>
-                      <div id="custom-rpm-input" class="hidden" aria-hidden="true">
-                        <label for="custom-rpm-val">RPM personnalisé ($)</label>
-                        <input type="number" id="custom-rpm-val" value="4" min="0" step="0.5"
-                          class="form-input" style="margin-top:8px">
-                        <span class="form-hint">Remplace l'estimation de RPM régionale pondérée.</span>
-                      </div>
+                    <div id="custom-rpm-input" class="hidden" aria-hidden="true">
+                      <label for="custom-rpm-val">RPM personnalisé ($)</label>
+                      <input type="number" id="custom-rpm-val" value="4" min="0" step="0.5"
+                        class="form-input" style="margin-top:8px">
+                      <span class="form-hint">Remplace l'estimation de RPM régionale pondérée.</span>
                     </div>
                   </div>
                 </div>
@@ -393,7 +388,13 @@
 
             <div class="results-label-row">
               <h3 class="results-heading">Gains Estimés</h3>
-              <span class="results-mode-tag" id="results-mode-tag">Mode Simple</span>
+              <div class="results-actions">
+                <span class="results-mode-tag" id="results-mode-tag">Mode Simple</span>
+                <button type="button" id="share-btn" class="share-btn" aria-label="Partager ce calcul">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  Partager
+                </button>
+              </div>
             </div>
 
             <div class="results-grid">
@@ -968,6 +969,7 @@
     });
   }
 </script>
+<script src="/cookie-banner.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4020973443671350" crossorigin="anonymous"></script>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
