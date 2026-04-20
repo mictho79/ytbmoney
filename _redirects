@@ -6,3 +6,29 @@
 /fr/youtube-cpm-by-country    /fr/youtube-rpm-by-country    301
 /es/youtube-cpm-by-country    /es/youtube-rpm-by-country    301
 /pt/youtube-cpm-by-country    /pt/youtube-rpm-by-country    301
+
+# 2025 → 2026 slug migration (Apr 2026) — preserves old backlinks
+/best-platform-new-creators-2025                       /best-platform-new-creators-2026                       301
+/fr/best-platform-new-creators-2025                    /fr/best-platform-new-creators-2026                    301
+/es/best-platform-new-creators-2025                    /es/best-platform-new-creators-2026                    301
+/pt/best-platform-new-creators-2025                    /pt/best-platform-new-creators-2026                    301
+/highest-paying-youtube-niches-2025                    /highest-paying-youtube-niches-2026                    301
+/fr/highest-paying-youtube-niches-2025                 /fr/highest-paying-youtube-niches-2026                 301
+/es/highest-paying-youtube-niches-2025                 /es/highest-paying-youtube-niches-2026                 301
+/pt/highest-paying-youtube-niches-2025                 /pt/highest-paying-youtube-niches-2026                 301
+/youtube-cpm-by-niche-2025                             /youtube-cpm-by-niche-2026                             301
+/fr/youtube-cpm-by-niche-2025                          /fr/youtube-cpm-by-niche-2026                          301
+/es/youtube-cpm-by-niche-2025                          /es/youtube-cpm-by-niche-2026                          301
+/pt/youtube-cpm-by-niche-2025                          /pt/youtube-cpm-by-niche-2026                          301
+/youtube-monetization-complete-guide-2025              /youtube-monetization-complete-guide-2026              301
+/fr/youtube-monetization-complete-guide-2025           /fr/youtube-monetization-complete-guide-2026           301
+/es/youtube-monetization-complete-guide-2025           /es/youtube-monetization-complete-guide-2026           301
+/pt/youtube-monetization-complete-guide-2025           /pt/youtube-monetization-complete-guide-2026           301
+/youtube-partner-program-requirements-2025             /youtube-partner-program-requirements-2026             301
+/fr/youtube-partner-program-requirements-2025          /fr/youtube-partner-program-requirements-2026          301
+/es/youtube-partner-program-requirements-2025          /es/youtube-partner-program-requirements-2026          301
+/pt/youtube-partner-program-requirements-2025          /pt/youtube-partner-program-requirements-2026          301
+/youtube-rpm-data-2025                                 /youtube-rpm-data-2026                                 301
+/fr/youtube-rpm-data-2025                              /fr/youtube-rpm-data-2026                              301
+/es/youtube-rpm-data-2025                              /es/youtube-rpm-data-2026                              301
+/pt/youtube-rpm-data-2025                              /pt/youtube-rpm-data-2026                              301
