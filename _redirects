@@ -1,0 +1,8 @@
+# Consolidation: /youtube-cpm-by-country was a duplicate-topic page of
+# /youtube-rpm-by-country with only 12 internal links vs 94 — Google was
+# already consolidating (GSC "canonical points elsewhere"). Merging to
+# preserve authority and end the confusion.
+/youtube-cpm-by-country       /youtube-rpm-by-country       301
+/fr/youtube-cpm-by-country    /fr/youtube-rpm-by-country    301
+/es/youtube-cpm-by-country    /es/youtube-rpm-by-country    301
+/pt/youtube-cpm-by-country    /pt/youtube-rpm-by-country    301
