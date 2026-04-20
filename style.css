@@ -957,6 +957,22 @@ label {
   margin-bottom: 20px;
 }
 
+/*
+ * 5-card variant: niche RPM / channel earnings / CPM-by-country calculators
+ * show low/avg/high RPM + monthly + yearly, so 5 equal columns reads cleaner
+ * than the 1.6fr+3x pattern. Drops to 2 columns on narrow screens via the
+ * existing .results-grid mobile breakpoint (matches line ~1811).
+ */
+.results-grid--five {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+@media (max-width: 720px) {
+  .results-grid--five {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .result-card {
   background: var(--card);
   border: 1px solid var(--border);
