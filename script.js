@@ -405,26 +405,36 @@ document.getElementById('custom-rpm-val').addEventListener('input', recalculate)
 
 document.getElementById('basic-views').addEventListener('input', recalculate);
 
-/* ===== FAQ ACCORDION ===== */
+/* ===== FAQ ACCORDION (event delegation — robust to dynamic DOM) ===== */
 
-document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item   = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    const answer = item.querySelector('.faq-a');
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.faq-q');
+  if (!btn) return;
+  const item = btn.closest('.faq-item');
+  if (!item) return;
+  const isOpen = item.classList.contains('open');
+  const answer = item.querySelector('.faq-a');
 
-    document.querySelectorAll('.faq-item.open').forEach(el => {
-      el.classList.remove('open');
-      el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-      el.querySelector('.faq-a').hidden = true;
-    });
-
-    if (!isOpen) {
-      item.classList.add('open');
-      btn.setAttribute('aria-expanded', 'true');
-      answer.hidden = false;
-    }
+  // Close every other open item
+  document.querySelectorAll('.faq-item.open').forEach(el => {
+    if (el === item) return;
+    el.classList.remove('open');
+    const q = el.querySelector('.faq-q');
+    const a = el.querySelector('.faq-a');
+    if (q) q.setAttribute('aria-expanded', 'false');
+    if (a) a.hidden = true;
   });
+
+  // Toggle current
+  if (isOpen) {
+    item.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    if (answer) answer.hidden = true;
+  } else {
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    if (answer) answer.hidden = false;
+  }
 });
 
 /* ===== MOBILE NAV TOGGLE ===== */
